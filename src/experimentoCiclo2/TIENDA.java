@@ -1,19 +1,41 @@
 package experimentoCiclo2;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import java.awt.Color;
 
-public class TIENDA extends JFrame {
+public class TIENDA extends JFrame implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
+	
+	//Declaración de variables
+	private JMenuBar menuBar;
+	private JMenu mnOpciones;
+	private JMenu mnMantenimiento;
+	private JMenu mnClientes;
+	private JMenuItem mntmIngresoCli;
+	private JMenuItem mntmModificacionCli;
+	private JMenuItem mntmConsultacCli;
+	private JMenuItem mntmEliminacionCli;
+	private JMenuItem mntmListadoCli;
+	private JMenu mnProductos;
+	private JMenuItem mntmIngresoProd;
+	private JMenuItem mntmModificacionProd;
+	private JMenuItem mntmConsultaProd;
+	private JMenuItem mntmEliminacionProd;
+	private JMenuItem mntmListadoProd;
+	private JMenu mnAlmacen;
+	private JMenu mnReportes;
+	private JMenu mnVentas;
+
+	private JMenuItem mntmSalir;
 
 	//Lanza la aplicación
 	public static void main(String[] args) {
@@ -31,62 +53,88 @@ public class TIENDA extends JFrame {
 
 	//CREA LA GUI
 	public TIENDA() {
-		setBackground(new Color(0, 0, 0));
+		setTitle("Tienda 2.0");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setSize(480,297);
+		setLocationRelativeTo(null);
+		setResizable(false);
+		setIconImage(new ImageIcon(getClass().getResource("/experimentoCiclo2/flor.png")).getImage());
+		iniciarComponentes();
 		
-		JMenuBar menuBar = new JMenuBar();
+	}
+	
+	private void iniciarComponentes() {
+		
+		
+		
+		menuBar = new JMenuBar();
 		menuBar.setForeground(Color.BLACK);
 		menuBar.setBackground(Color.BLACK);
 		setJMenuBar(menuBar);
 		
-		JMenu mnArchivo = new JMenu("Archivo");
-		mnArchivo.setForeground(Color.WHITE);
-		menuBar.add(mnArchivo);
+		mnOpciones = new JMenu("Opciones");
+		mnOpciones.setForeground(Color.WHITE);
+		menuBar.add(mnOpciones);
 		
-		JMenu mnMantenimiento = new JMenu("Mantenimiento");
+		mntmSalir = new JMenuItem("Salir");
+		mnOpciones.add(mntmSalir);
+		
+		mnMantenimiento = new JMenu("Mantenimiento");
 		mnMantenimiento.setForeground(Color.WHITE);
 		menuBar.add(mnMantenimiento);
 		
-		JMenu mnClientes = new JMenu("Clientes");
+		mnClientes = new JMenu("Clientes");
 		mnMantenimiento.add(mnClientes);
 		
-		JMenuItem mntmIngresoCli = new JMenuItem("Ingreso");
+		mntmIngresoCli = new JMenuItem("Ingreso");
 		mnClientes.add(mntmIngresoCli);
 		
-		JMenuItem mntmModificacionCli = new JMenuItem("Modificación");
+		mntmModificacionCli = new JMenuItem("Modificación");
 		mnClientes.add(mntmModificacionCli);
 		
-		JMenuItem mntmConsultacCli = new JMenuItem("Consulta");
+		mntmConsultacCli = new JMenuItem("Consulta");
 		mnClientes.add(mntmConsultacCli);
 		
-		JMenuItem mntmEliminacionCli = new JMenuItem("Eliminación");
+		mntmEliminacionCli = new JMenuItem("Eliminación");
 		mnClientes.add(mntmEliminacionCli);
 		
-		JMenuItem mntmListadoCli = new JMenuItem("Listado");
+		mntmListadoCli = new JMenuItem("Listado");
 		mnClientes.add(mntmListadoCli);
 		
-		JMenu mnProductos = new JMenu("Productos");
+		mnProductos = new JMenu("Productos");
 		mnMantenimiento.add(mnProductos);
 		
-		JMenuItem mntmIngresoProd = new JMenuItem("Ingreso");
+		mntmIngresoProd = new JMenuItem("Ingreso");
 		mnProductos.add(mntmIngresoProd);
 		
-		JMenuItem mntmModificacionProd = new JMenuItem("Modificación");
+		mntmModificacionProd = new JMenuItem("Modificación");
 		mnProductos.add(mntmModificacionProd);
 		
-		JMenuItem mntmConsultaProd = new JMenuItem("Consulta");
+		mntmConsultaProd = new JMenuItem("Consulta");
 		mnProductos.add(mntmConsultaProd);
 		
-		JMenuItem mntmEliminacionProd = new JMenuItem("Eliminación");
+		mntmEliminacionProd = new JMenuItem("Eliminación");
 		mnProductos.add(mntmEliminacionProd);
 		
-		JMenuItem mntmListadoProd = new JMenuItem("Listado");
+		mntmListadoProd = new JMenuItem("Listado");
 		mnProductos.add(mntmListadoProd);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		
+		mnAlmacen = new JMenu("Almacén");
+		mnAlmacen.setForeground(Color.WHITE);
+		menuBar.add(mnAlmacen);
+		
+		mnReportes = new JMenu("Reportes");
+		mnReportes.setForeground(Color.WHITE);
+		menuBar.add(mnReportes);
+		
+		mnVentas = new JMenu("Ventas");
+		mnVentas.setForeground(Color.WHITE);
+		menuBar.add(mnVentas);
+		getContentPane().setLayout(null);
+	}
+	
+	//Direccionando los botones del menu
+	public void actionPerformed(ActionEvent e) {
+		
 	}
 }
