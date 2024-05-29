@@ -1,14 +1,17 @@
-package experimentoCiclo2;
+package VentanaPrincipal;
 
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.ImageIcon;
+
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+
+import CLIENTE.IngresoCli;
+
 import java.awt.Color;
 
 public class TIENDA extends JFrame implements ActionListener{
@@ -22,7 +25,7 @@ public class TIENDA extends JFrame implements ActionListener{
 	private JMenu mnClientes;
 	private JMenuItem mntmIngresoCli;
 	private JMenuItem mntmModificacionCli;
-	private JMenuItem mntmConsultacCli;
+	private JMenuItem mntmConsultaCli;
 	private JMenuItem mntmEliminacionCli;
 	private JMenuItem mntmListadoCli;
 	private JMenu mnProductos;
@@ -58,7 +61,6 @@ public class TIENDA extends JFrame implements ActionListener{
 		setSize(480,297);
 		setLocationRelativeTo(null);
 		setResizable(false);
-		setIconImage(new ImageIcon(getClass().getResource("/experimentoCiclo2/flor.png")).getImage());
 		iniciarComponentes();
 		
 	}
@@ -77,6 +79,7 @@ public class TIENDA extends JFrame implements ActionListener{
 		menuBar.add(mnOpciones);
 		
 		mntmSalir = new JMenuItem("Salir");
+		mntmSalir.addActionListener(this);
 		mnOpciones.add(mntmSalir);
 		
 		mnMantenimiento = new JMenu("Mantenimiento");
@@ -87,54 +90,86 @@ public class TIENDA extends JFrame implements ActionListener{
 		mnMantenimiento.add(mnClientes);
 		
 		mntmIngresoCli = new JMenuItem("Ingreso");
+		mntmIngresoCli.addActionListener(this);
 		mnClientes.add(mntmIngresoCli);
 		
 		mntmModificacionCli = new JMenuItem("Modificación");
+		mntmModificacionCli.addActionListener(this);
 		mnClientes.add(mntmModificacionCli);
 		
-		mntmConsultacCli = new JMenuItem("Consulta");
-		mnClientes.add(mntmConsultacCli);
+		mntmConsultaCli = new JMenuItem("Consulta");
+		mntmConsultaCli.addActionListener(this);
+		mnClientes.add(mntmConsultaCli);
 		
 		mntmEliminacionCli = new JMenuItem("Eliminación");
+		mntmEliminacionCli.addActionListener(this);
 		mnClientes.add(mntmEliminacionCli);
 		
 		mntmListadoCli = new JMenuItem("Listado");
+		mntmListadoCli.addActionListener(this);
 		mnClientes.add(mntmListadoCli);
 		
 		mnProductos = new JMenu("Productos");
 		mnMantenimiento.add(mnProductos);
 		
 		mntmIngresoProd = new JMenuItem("Ingreso");
+		mntmIngresoProd.addActionListener(this);
 		mnProductos.add(mntmIngresoProd);
 		
 		mntmModificacionProd = new JMenuItem("Modificación");
+		mntmModificacionProd.addActionListener(this);
 		mnProductos.add(mntmModificacionProd);
 		
 		mntmConsultaProd = new JMenuItem("Consulta");
+		mntmConsultaProd.addActionListener(this);
 		mnProductos.add(mntmConsultaProd);
 		
 		mntmEliminacionProd = new JMenuItem("Eliminación");
+		mntmEliminacionProd.addActionListener(this);
 		mnProductos.add(mntmEliminacionProd);
 		
 		mntmListadoProd = new JMenuItem("Listado");
+		mntmListadoProd.addActionListener(this);
 		mnProductos.add(mntmListadoProd);
 		
 		mnAlmacen = new JMenu("Almacén");
+		mnAlmacen.addActionListener(this);
 		mnAlmacen.setForeground(Color.WHITE);
 		menuBar.add(mnAlmacen);
 		
 		mnReportes = new JMenu("Reportes");
+		mnReportes.addActionListener(this);
 		mnReportes.setForeground(Color.WHITE);
 		menuBar.add(mnReportes);
 		
 		mnVentas = new JMenu("Ventas");
+		mnVentas.addActionListener(this);
 		mnVentas.setForeground(Color.WHITE);
 		menuBar.add(mnVentas);
 		getContentPane().setLayout(null);
 	}
 	
+	
 	//Direccionando los botones del menu
 	public void actionPerformed(ActionEvent e) {
 		
+		if  (mntmSalir==e.getSource()){
+			actionPerfomedMntmSalir(e);
+		}
+		
+		if (mntmIngresoCli==e.getSource()) {
+			actionPerfomedMntmIngresoCli(e);
+		}
 	}
+	
+	
+	//Direcciona las acciones de los botones
+		public void actionPerfomedMntmSalir(ActionEvent e) {
+			System.exit(0);
+		}
+		
+		public void actionPerfomedMntmIngresoCli(ActionEvent e) {
+			IngresoCli ventana = new IngresoCli ();
+			ventana.setVisible(true);
+		}
 }
