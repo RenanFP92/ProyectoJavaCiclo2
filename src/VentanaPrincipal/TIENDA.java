@@ -15,7 +15,11 @@ import CLIENTE.EliminacionCli;
 import CLIENTE.IngresoCli;
 import CLIENTE.ListadoCli;
 import CLIENTE.ModificacionCli;
+import PRODUCTO.ConsultaProd;
+import PRODUCTO.EliminacionProd;
 import PRODUCTO.IngresoProd;
+import PRODUCTO.ListadoProd;
+import PRODUCTO.ModificacionProd;
 
 import java.awt.Color;
 
@@ -185,6 +189,18 @@ public class TIENDA extends JFrame implements ActionListener{
 		if (mntmIngresoProd==e.getSource()) {
 			actionPerfomedMntmIngresoProd(e);
 		}
+		
+		if (mntmModificacionProd==e.getSource()) {
+			actionPerfomedMntmModificacionProd(e);
+		}
+		
+		if (mntmEliminacionProd==e.getSource()) {
+			actionPerfomedMntmEliminacionProd(e);
+		}
+		
+		if (mntmListadoProd==e.getSource()) {
+			actionPerfomedMntmListadoProd(e);
+		}
 	}
 	
 	
@@ -221,5 +237,25 @@ public class TIENDA extends JFrame implements ActionListener{
 		public void actionPerfomedMntmIngresoProd(ActionEvent e) {
 			IngresoProd ventana6 = new IngresoProd();
 			ventana6.setVisible(true);
+		}
+		
+		public void actionPerfomedMntmModificacionProd(ActionEvent e) {
+			ModificacionProd ventana7 = new ModificacionProd();
+			ventana7.setVisible(true);
+		}
+		
+		public void actionPerfomedMntmConsultaProd(ActionEvent e) {
+			ConsultaProd ventana8 = new ConsultaProd();
+			ventana8.setVisible(true);
+		}
+		
+		public void actionPerfomedMntmEliminacionProd(ActionEvent e) {
+			EliminacionProd ventana9 = new EliminacionProd();
+			ventana9.setVisible(true);
+		}
+		
+		public void actionPerfomedMntmListadoProd(ActionEvent e) {
+			ListadoProd ventana10 = new ListadoProd();
+			ventana10.setVisible(true);
 		}
 }

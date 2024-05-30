@@ -42,58 +42,58 @@ public class ModificacionCli extends JFrame {
 		contentPane.setLayout(null);
 		
 		lblCodigo_1 = new JLabel("Código:");
-		lblCodigo_1.setBounds(10, 14, 46, 14);
+		lblCodigo_1.setBounds(10, 14, 69, 14);
 		contentPane.add(lblCodigo_1);
 		
 		txtCodigo = new JTextField();
 		txtCodigo.setText("Ingrese el código");
 		txtCodigo.setColumns(10);
-		txtCodigo.setBounds(66, 11, 194, 20);
+		txtCodigo.setBounds(89, 11, 194, 20);
 		contentPane.add(txtCodigo);
 		
 		lblNombre = new JLabel("Nombres:");
-		lblNombre.setBounds(10, 45, 46, 14);
+		lblNombre.setBounds(10, 45, 69, 14);
 		contentPane.add(lblNombre);
 		
 		txtNombre = new JTextField();
 		txtNombre.setColumns(10);
-		txtNombre.setBounds(66, 42, 194, 20);
+		txtNombre.setBounds(89, 42, 194, 20);
 		contentPane.add(txtNombre);
 		
 		lblApellido = new JLabel("Apellidos:");
-		lblApellido.setBounds(10, 76, 46, 14);
+		lblApellido.setBounds(10, 76, 69, 14);
 		contentPane.add(lblApellido);
 		
 		txtApellido = new JTextField();
 		txtApellido.setColumns(10);
-		txtApellido.setBounds(66, 73, 194, 20);
+		txtApellido.setBounds(89, 73, 194, 20);
 		contentPane.add(txtApellido);
 		
 		lblDireccion = new JLabel("Dirección:");
-		lblDireccion.setBounds(10, 107, 56, 14);
+		lblDireccion.setBounds(10, 107, 69, 14);
 		contentPane.add(lblDireccion);
 		
 		txtDireccion = new JTextField();
 		txtDireccion.setColumns(10);
-		txtDireccion.setBounds(66, 104, 194, 20);
+		txtDireccion.setBounds(89, 104, 194, 20);
 		contentPane.add(txtDireccion);
 		
 		lblTelefono = new JLabel("Teléfono:");
-		lblTelefono.setBounds(10, 138, 46, 14);
+		lblTelefono.setBounds(10, 138, 69, 14);
 		contentPane.add(lblTelefono);
 		
 		txtTelefono = new JTextField();
 		txtTelefono.setColumns(10);
-		txtTelefono.setBounds(66, 135, 194, 20);
+		txtTelefono.setBounds(89, 135, 194, 20);
 		contentPane.add(txtTelefono);
 		
 		lblDni = new JLabel("DNI:");
-		lblDni.setBounds(10, 166, 46, 14);
+		lblDni.setBounds(10, 166, 69, 14);
 		contentPane.add(lblDni);
 		
 		txtDni = new JTextField();
 		txtDni.setColumns(10);
-		txtDni.setBounds(66, 163, 194, 20);
+		txtDni.setBounds(89, 163, 194, 20);
 		contentPane.add(txtDni);
 		
 		btnBuscar = new JButton("Buscar");

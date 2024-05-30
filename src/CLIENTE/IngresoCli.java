@@ -41,57 +41,57 @@ public class IngresoCli extends JFrame {
 		contentPane.setLayout(null);
 		
 		lblCodigo = new JLabel("Código:");
-		lblCodigo.setBounds(10, 14, 46, 14);
+		lblCodigo.setBounds(10, 14, 70, 14);
 		contentPane.add(lblCodigo);
 		
 		txtCodigo = new JTextField();
-		txtCodigo.setBounds(66, 11, 194, 20);
+		txtCodigo.setBounds(90, 8, 194, 20);
 		contentPane.add(txtCodigo);
 		txtCodigo.setColumns(10);
 		
 		lblNombre = new JLabel("Nombres:");
-		lblNombre.setBounds(10, 45, 46, 14);
+		lblNombre.setBounds(10, 45, 70, 14);
 		contentPane.add(lblNombre);
 		
 		txtNombre = new JTextField();
 		txtNombre.setColumns(10);
-		txtNombre.setBounds(66, 42, 194, 20);
+		txtNombre.setBounds(90, 39, 194, 20);
 		contentPane.add(txtNombre);
 		
 		lblApellido = new JLabel("Apellidos:");
-		lblApellido.setBounds(10, 76, 46, 14);
+		lblApellido.setBounds(10, 76, 70, 14);
 		contentPane.add(lblApellido);
 		
 		txtApellido = new JTextField();
 		txtApellido.setColumns(10);
-		txtApellido.setBounds(66, 73, 194, 20);
+		txtApellido.setBounds(90, 70, 194, 20);
 		contentPane.add(txtApellido);
 		
 		txtDireccion = new JTextField();
 		txtDireccion.setColumns(10);
-		txtDireccion.setBounds(66, 104, 194, 20);
+		txtDireccion.setBounds(90, 101, 194, 20);
 		contentPane.add(txtDireccion);
 		
 		lblDireccion = new JLabel("Dirección:");
-		lblDireccion.setBounds(10, 107, 56, 14);
+		lblDireccion.setBounds(10, 107, 70, 14);
 		contentPane.add(lblDireccion);
 		
 		lblTelefono = new JLabel("Teléfono:");
-		lblTelefono.setBounds(10, 138, 46, 14);
+		lblTelefono.setBounds(10, 138, 70, 14);
 		contentPane.add(lblTelefono);
 		
 		txtTelefono = new JTextField();
 		txtTelefono.setColumns(10);
-		txtTelefono.setBounds(66, 135, 194, 20);
+		txtTelefono.setBounds(90, 132, 194, 20);
 		contentPane.add(txtTelefono);
 		
 		lblDni = new JLabel("DNI:");
-		lblDni.setBounds(10, 166, 46, 14);
+		lblDni.setBounds(10, 166, 70, 14);
 		contentPane.add(lblDni);
 		
 		txtDNI = new JTextField();
 		txtDNI.setColumns(10);
-		txtDNI.setBounds(66, 163, 194, 20);
+		txtDNI.setBounds(90, 160, 194, 20);
 		contentPane.add(txtDNI);
 		
 		btnGuardar = new JButton("Guardar");
