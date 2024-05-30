@@ -10,7 +10,12 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 
+import CLIENTE.ConsultaCli;
+import CLIENTE.EliminacionCli;
 import CLIENTE.IngresoCli;
+import CLIENTE.ListadoCli;
+import CLIENTE.ModificacionCli;
+import PRODUCTO.IngresoProd;
 
 import java.awt.Color;
 
@@ -160,6 +165,26 @@ public class TIENDA extends JFrame implements ActionListener{
 		if (mntmIngresoCli==e.getSource()) {
 			actionPerfomedMntmIngresoCli(e);
 		}
+		
+		if (mntmModificacionCli==e.getSource()) {
+			actionPerfomedMntmModificacionCli(e);
+		}
+		
+		if (mntmConsultaCli==e.getSource()) {
+			actionPerfomedMntmConsultaCli(e);
+		}
+		
+		if (mntmEliminacionCli==e.getSource()) {
+			actionPerfomedMntmEliminacionCli(e);
+		}
+		
+		if (mntmListadoCli==e.getSource()) {
+			actionPerfomedMntmListadoCli(e);
+		}
+		
+		if (mntmIngresoProd==e.getSource()) {
+			actionPerfomedMntmIngresoProd(e);
+		}
 	}
 	
 	
@@ -169,7 +194,32 @@ public class TIENDA extends JFrame implements ActionListener{
 		}
 		
 		public void actionPerfomedMntmIngresoCli(ActionEvent e) {
-			IngresoCli ventana = new IngresoCli ();
-			ventana.setVisible(true);
+			IngresoCli ventana1 = new IngresoCli ();
+			ventana1.setVisible(true);
+		}
+		
+		public void actionPerfomedMntmModificacionCli(ActionEvent e) {
+			ModificacionCli ventana2 = new ModificacionCli();
+			ventana2.setVisible(true);
+		}
+		
+		public void actionPerfomedMntmConsultaCli(ActionEvent e) {
+			ConsultaCli ventana3 = new ConsultaCli();
+			ventana3.setVisible(true);
+		}
+		
+		public void actionPerfomedMntmEliminacionCli(ActionEvent e) {
+			EliminacionCli ventana4 = new EliminacionCli();
+			ventana4.setVisible(true);
+		}
+		
+		public void actionPerfomedMntmListadoCli(ActionEvent e) {
+			ListadoCli ventana5 = new ListadoCli();
+			ventana5.setVisible(true);
+		}
+		
+		public void actionPerfomedMntmIngresoProd(ActionEvent e) {
+			IngresoProd ventana6 = new IngresoProd();
+			ventana6.setVisible(true);
 		}
 }
