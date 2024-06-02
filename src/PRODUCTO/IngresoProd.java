@@ -8,6 +8,8 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
 import Clases.Producto;
@@ -107,6 +109,7 @@ public class IngresoProd extends JFrame implements ActionListener{
 		btnGuardar.addActionListener(this);
 		btnGuardar.setBounds(335, 11, 89, 23);
 		contentPane.add(btnGuardar);
+		cargarUltimoCodigo();
 	}
 
 	//Redirigiendo botón guardar
@@ -139,5 +142,24 @@ public class IngresoProd extends JFrame implements ActionListener{
 		ultimoCodigo++;
         txtCodigo.setText(String.valueOf(ultimoCodigo));		
 	}
+	
+	//Función para que cargue el ultimo código
+	private void cargarUltimoCodigo() {
+        try (BufferedReader br = new BufferedReader(new FileReader("productos.txt"))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                if (linea.startsWith("Código:")) {
+                    int codigo = Integer.parseInt(linea.split(":")[1].trim());
+                    if (codigo > ultimoCodigo) {
+                        ultimoCodigo = codigo;
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        ultimoCodigo++; // Incrementa para el siguiente código
+        txtCodigo.setText(String.valueOf(ultimoCodigo));
+    }
 
 }

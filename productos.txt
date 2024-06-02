@@ -82,3 +82,94 @@ Stock Actual: 15
 Stock Mínimo: 2
 Stock Máximo: 20
 
+Código: 2000
+Nombre: gaseosa
+Precio: 23.0
+Stock Actual: 20
+Stock Mínimo: 10
+Stock Máximo: 50
+
+Código: 2001
+Nombre: fanta
+Precio: 6.0
+Stock Actual: 30
+Stock Mínimo: 10
+Stock Máximo: 60
+
+Código: 2002
+Nombre: fanta
+Precio: 6.0
+Stock Actual: 30
+Stock Mínimo: 10
+Stock Máximo: 60
+
+Código: 2003
+Nombre: fanta
+Precio: 6.0
+Stock Actual: 30
+Stock Mínimo: 10
+Stock Máximo: 60
+
+Código: 2004
+Nombre: fanta
+Precio: 6.0
+Stock Actual: 30
+Stock Mínimo: 10
+Stock Máximo: 60
+
+Código: 2000
+Nombre: sprite
+Precio: 6.0
+Stock Actual: 100
+Stock Mínimo: 10
+Stock Máximo: 200
+
+Código: 2001
+Nombre: sprite
+Precio: 6.0
+Stock Actual: 100
+Stock Mínimo: 10
+Stock Máximo: 200
+
+Código: 2002
+Nombre: sprite
+Precio: 6.0
+Stock Actual: 100
+Stock Mínimo: 10
+Stock Máximo: 200
+
+Código: 2003
+Nombre: sprite
+Precio: 6.0
+Stock Actual: 100
+Stock Mínimo: 10
+Stock Máximo: 200
+
+Código: 2004
+Nombre: sprite
+Precio: 6.0
+Stock Actual: 100
+Stock Mínimo: 10
+Stock Máximo: 200
+
+Código: 2005
+Nombre: sprite
+Precio: 6.0
+Stock Actual: 100
+Stock Mínimo: 10
+Stock Máximo: 200
+
+Código: 2006
+Nombre: zapato
+Precio: 55.0
+Stock Actual: 10
+Stock Mínimo: 1
+Stock Máximo: 12
+
+Código: 2007
+Nombre: zapato
+Precio: 55.0
+Stock Actual: 10
+Stock Mínimo: 1
+Stock Máximo: 12
+
