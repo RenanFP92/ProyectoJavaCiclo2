@@ -1,6 +1,5 @@
 package PRODUCTO;
 
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -8,10 +7,17 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
 
-public class ConsultaProd extends JFrame {
+public class ConsultaProd extends JFrame implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -23,17 +29,19 @@ public class ConsultaProd extends JFrame {
 
 	
 
-	/**
-	 * Create the frame.
-	 */
+	//Crea la ventana
 	public ConsultaProd() {
 		setTitle("Consulta de Producto");
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
+		setResizable(false);
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		iniciarComponentes();
+	}
+		
+	public void iniciarComponentes() {
 		
 		lblCodigo = new JLabel("Código:");
 		lblCodigo.setBounds(10, 15, 46, 14);
@@ -47,6 +55,7 @@ public class ConsultaProd extends JFrame {
 		
 		btnBuscar = new JButton("Buscar");
 		btnBuscar.setBounds(335, 11, 89, 23);
+		btnBuscar.addActionListener(this);
 		contentPane.add(btnBuscar);
 		
 		scrollPane = new JScrollPane();
@@ -57,4 +66,39 @@ public class ConsultaProd extends JFrame {
 		scrollPane.setViewportView(txtResultado);
 	}
 
+	//Redireccionando el botón buscar
+	public void actionPerformed(ActionEvent e) {
+		if (btnBuscar==e.getSource()) {
+			Buscar(e);
+		}		
+	}
+	
+	//Proceso del botón buscar
+	public void Buscar(ActionEvent e) {
+		String codigoBuscado = txtCodigo.getText().trim();
+        if (!codigoBuscado.isEmpty()) {
+            try (BufferedReader br = new BufferedReader(new FileReader("productos.txt"))) {
+                String linea;
+                while ((linea = br.readLine()) != null) {
+                    if (linea.contains("Código: " + codigoBuscado)) {
+                        StringBuilder productoEncontrado = new StringBuilder();
+                        for (int i = 0; i < 6; i++) { // Leemos las siguientes 6 líneas (datos del producto)
+                            productoEncontrado.append(linea).append("\n");
+                            linea = br.readLine();
+                        }
+                        txtResultado.setText(productoEncontrado.toString());
+                        return; // Terminamos la búsqueda
+                    }
+                }
+                txtResultado.setText("No se encontraron productos con el código: " + codigoBuscado);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        } else {
+            txtResultado.setText("Por favor ingrese un código.");
+        }
+    }
 }
+
+
+

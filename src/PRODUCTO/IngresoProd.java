@@ -1,96 +1,143 @@
 package PRODUCTO;
 
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.awt.event.ActionEvent;
+import Clases.Producto;
 
-public class IngresoProd extends JFrame {
+public class IngresoProd extends JFrame implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-
 	
-	/**
-	 * Create the frame.
-	 */
+	//Declarando variables
+	private JPanel contentPane;
+	private JTextField txtCodigo;
+	private JTextField txtNombre;
+	private JTextField txtPrecio;
+	private JTextField txtStockActual;
+	private JTextField txtStockMax;
+	private JTextField txtStockMin;
+	private JLabel lblCodigo;
+	private JLabel lblNombre;
+	private JLabel lblPrecio;
+	private JLabel lblStockActual;
+	private JLabel lblStockMinimo;
+	private JLabel lblStockMaximo;
+	private JButton btnGuardar;
+	private int ultimoCodigo = 2000;
+	
+	
+	//Se crea la ventana
 	public IngresoProd() {
 		setTitle("Ingreso de Producto");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 230);
+		setBounds(100, 100, 460, 234);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
+		setResizable(false);
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		iniciarComponentes();
+	}
+	
+	private void iniciarComponentes() {
 		
-		JLabel lblCodigo = new JLabel("Código:");
-		lblCodigo.setBounds(10, 15, 46, 14);
+		lblCodigo = new JLabel("Código:");
+		lblCodigo.setBounds(10, 15, 97, 14);
 		contentPane.add(lblCodigo);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBounds(66, 12, 194, 20);
-		contentPane.add(textField);
+		txtCodigo = new JTextField();
+		txtCodigo.setEditable(false);
+		txtCodigo.setColumns(10);
+		txtCodigo.setBounds(117, 9, 194, 20);
+		contentPane.add(txtCodigo);
 		
-		JLabel lblNombre = new JLabel("Nombres:");
-		lblNombre.setBounds(10, 46, 46, 14);
+		lblNombre = new JLabel("Nombre:");
+		lblNombre.setBounds(10, 46, 97, 14);
 		contentPane.add(lblNombre);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(66, 43, 194, 20);
-		contentPane.add(textField_1);
+		txtNombre = new JTextField();
+		txtNombre.setColumns(10);
+		txtNombre.setBounds(117, 40, 194, 20);
+		contentPane.add(txtNombre);
 		
-		JLabel lblApellido = new JLabel("Apellidos:");
-		lblApellido.setBounds(10, 77, 46, 14);
-		contentPane.add(lblApellido);
+		lblPrecio = new JLabel("Precio:");
+		lblPrecio.setBounds(10, 77, 97, 14);
+		contentPane.add(lblPrecio);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(66, 74, 194, 20);
-		contentPane.add(textField_2);
+		txtPrecio = new JTextField();
+		txtPrecio.setColumns(10);
+		txtPrecio.setBounds(117, 71, 194, 20);
+		contentPane.add(txtPrecio);
 		
-		JLabel lblDireccion = new JLabel("Dirección:");
-		lblDireccion.setBounds(10, 108, 56, 14);
-		contentPane.add(lblDireccion);
+		lblStockActual = new JLabel("Stock Actual:");
+		lblStockActual.setBounds(10, 108, 97, 14);
+		contentPane.add(lblStockActual);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(66, 105, 194, 20);
-		contentPane.add(textField_3);
+		txtStockActual = new JTextField();
+		txtStockActual.setColumns(10);
+		txtStockActual.setBounds(117, 102, 194, 20);
+		contentPane.add(txtStockActual);
 		
-		JLabel lblTelefono = new JLabel("Teléfono:");
-		lblTelefono.setBounds(10, 139, 46, 14);
-		contentPane.add(lblTelefono);
+		lblStockMinimo = new JLabel("Stock Mínimo:");
+		lblStockMinimo.setBounds(10, 139, 97, 14);
+		contentPane.add(lblStockMinimo);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(66, 164, 194, 20);
-		contentPane.add(textField_4);
+		txtStockMax = new JTextField();
+		txtStockMax.setColumns(10);
+		txtStockMax.setBounds(117, 161, 194, 20);
+		contentPane.add(txtStockMax);
 		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(66, 136, 194, 20);
-		contentPane.add(textField_5);
+		txtStockMin = new JTextField();
+		txtStockMin.setColumns(10);
+		txtStockMin.setBounds(117, 133, 194, 20);
+		contentPane.add(txtStockMin);
 		
-		JLabel lblDni = new JLabel("DNI:");
-		lblDni.setBounds(10, 167, 46, 14);
-		contentPane.add(lblDni);
+		lblStockMaximo = new JLabel("Stock Máximo:");
+		lblStockMaximo.setBounds(10, 167, 97, 14);
+		contentPane.add(lblStockMaximo);
 		
-		JButton btnGuardar = new JButton("Guardar");
+		btnGuardar = new JButton("Guardar");
+		btnGuardar.addActionListener(this);
 		btnGuardar.setBounds(335, 11, 89, 23);
 		contentPane.add(btnGuardar);
+	}
+
+	//Redirigiendo botón guardar
+	public void actionPerformed(ActionEvent e) {
+		if (btnGuardar==e.getSource()) {
+			Guardar(e);
+		}
+	}
+	
+	//Procesos del botón guardar
+	public void Guardar(ActionEvent e) {
+		// Obtener los datos ingresados
+        String nombre = txtNombre.getText();
+        double precio = Double.parseDouble(txtPrecio.getText());
+        int stockActual = Integer.parseInt(txtStockActual.getText());
+        int stockMin = Integer.parseInt(txtStockMin.getText());
+        int stockMax = Integer.parseInt(txtStockMax.getText());
+
+        // Crear un objeto Producto con los datos ingresados
+        Producto producto = new Producto(ultimoCodigo, nombre, precio, stockActual, stockMin, stockMax);
+
+        // Guardar el producto en el archivo
+        try {
+            producto.guardarProducto();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+		
+		// Incrementar el último código generado y establecerlo en el campo de texto
+		ultimoCodigo++;
+        txtCodigo.setText(String.valueOf(ultimoCodigo));		
 	}
 
 }

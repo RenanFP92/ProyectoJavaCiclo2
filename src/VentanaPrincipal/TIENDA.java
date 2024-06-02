@@ -190,6 +190,10 @@ public class TIENDA extends JFrame implements ActionListener{
 			actionPerfomedMntmIngresoProd(e);
 		}
 		
+		if (mntmConsultaProd==e.getSource()) {
+			actionPerfomedMntmConsultaProd(e);
+		}
+				
 		if (mntmModificacionProd==e.getSource()) {
 			actionPerfomedMntmModificacionProd(e);
 		}

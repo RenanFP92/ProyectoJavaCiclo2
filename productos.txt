@@ -1,0 +1,84 @@
+Código: 2000
+Nombre: Manzana
+Precio: 15.0
+Stock Actual: 25
+Stock Mínimo: 10
+Stock Máximo: 30
+
+Código: 2001
+Nombre: Manzana
+Precio: 15.0
+Stock Actual: 25
+Stock Mínimo: 10
+Stock Máximo: 30
+
+Código: 2000
+Nombre: caramelo
+Precio: 5.0
+Stock Actual: 15
+Stock Mínimo: 5
+Stock Máximo: 20
+
+Código: 2001
+Nombre: caramelo
+Precio: 5.0
+Stock Actual: 15
+Stock Mínimo: 5
+Stock Máximo: 20
+
+Código: 2000
+Nombre: caramelo
+Precio: 5.0
+Stock Actual: 30
+Stock Mínimo: 10
+Stock Máximo: 50
+
+Código: 2001
+Nombre: pelota
+Precio: 10.0
+Stock Actual: 30
+Stock Mínimo: 10
+Stock Máximo: 50
+
+Código: 2000
+Nombre: caramelo
+Precio: 5.0
+Stock Actual: 30
+Stock Mínimo: 10
+Stock Máximo: 60
+
+Código: 2001
+Nombre: pelota
+Precio: 55.0
+Stock Actual: 30
+Stock Mínimo: 10
+Stock Máximo: 60
+
+Código: 2000
+Nombre: caramelo
+Precio: 5.0
+Stock Actual: 30
+Stock Mínimo: 10
+Stock Máximo: 50
+
+Código: 2001
+Nombre: pelota
+Precio: 55.0
+Stock Actual: 30
+Stock Mínimo: 10
+Stock Máximo: 50
+
+Código: 2002
+Nombre: pelota
+Precio: 55.0
+Stock Actual: 30
+Stock Mínimo: 10
+Stock Máximo: 50
+
+Código: 2003
+Nombre: chicle
+Precio: 2.0
+Stock Actual: 15
+Stock Mínimo: 2
+Stock Máximo: 20
+
