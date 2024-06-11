@@ -1,8 +1,8 @@
 package Clases;
 
+import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 public class Producto {
     private int codigo;
@@ -11,6 +11,7 @@ public class Producto {
     private int stockActual;
     private int stockMin;
     private int stockMax;
+    private String[] productoData; // Arreglo para almacenar los datos del producto
 
     public Producto(int codigo, String nombre, double precio, int stockActual, int stockMin, int stockMax) {
         this.codigo = codigo;
@@ -19,22 +20,24 @@ public class Producto {
         this.stockActual = stockActual;
         this.stockMin = stockMin;
         this.stockMax = stockMax;
+        this.productoData = new String[]{
+            "Código: " + codigo,
+            "Nombre: " + nombre,
+            "Precio: " + precio,
+            "Stock Actual: " + stockActual,
+            "Stock Mínimo: " + stockMin,
+            "Stock Máximo: " + stockMax
+        };
     }
 
     public void guardarProducto() throws IOException {
-        // Crear un nuevo archivo "productos.txt" o sobrescribir si ya existe
-        PrintWriter writer = new PrintWriter(new FileWriter("productos.txt", true));
-
-        // Escribir los datos del producto en el archivo
-        writer.println("Código: " + codigo);
-        writer.println("Nombre: " + nombre);
-        writer.println("Precio: " + precio);
-        writer.println("Stock Actual: " + stockActual);
-        writer.println("Stock Mínimo: " + stockMin);
-        writer.println("Stock Máximo: " + stockMax);
-        writer.println();
-
-        // Cerrar el flujo de escritura
-        writer.close();
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("productos.txt", true))) {
+            for (String dato : productoData) {
+                bw.write(dato);
+                bw.newLine();
+            }
+            bw.write("--------------------------------------------------");
+            bw.newLine();
+        }
     }
 }
