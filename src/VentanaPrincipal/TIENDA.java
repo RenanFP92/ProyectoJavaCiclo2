@@ -3,12 +3,14 @@ package VentanaPrincipal;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.io.FileWriter;
+import java.io.IOException;
 
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
 import CLIENTE.ConsultaCli;
 import CLIENTE.EliminacionCli;
@@ -48,6 +50,8 @@ public class TIENDA extends JFrame implements ActionListener{
 	private JMenu mnVentas;
 
 	private JMenuItem mntmSalir;
+
+	private JMenuItem mntmBorrarDatos;
 
 	//Lanza la aplicación
 	public static void main(String[] args) {
@@ -89,6 +93,10 @@ public class TIENDA extends JFrame implements ActionListener{
 		
 		mntmSalir = new JMenuItem("Salir");
 		mntmSalir.addActionListener(this);
+		
+		mntmBorrarDatos = new JMenuItem("Borrar Datos");
+		mntmBorrarDatos.addActionListener(this);
+		mnOpciones.add(mntmBorrarDatos);
 		mnOpciones.add(mntmSalir);
 		
 		mnMantenimiento = new JMenu("Mantenimiento");
@@ -205,6 +213,10 @@ public class TIENDA extends JFrame implements ActionListener{
 		if (mntmListadoProd==e.getSource()) {
 			actionPerfomedMntmListadoProd(e);
 		}
+		
+		if (mntmBorrarDatos==e.getSource()) {
+			actionPerfomedMntmBorrarDatos(e);
+		}
 	}
 	
 	
@@ -262,4 +274,18 @@ public class TIENDA extends JFrame implements ActionListener{
 			ListadoProd ventana10 = new ListadoProd();
 			ventana10.setVisible(true);
 		}
+		
+		public void actionPerfomedMntmBorrarDatos(ActionEvent e) {
+		        int respuesta = JOptionPane.showConfirmDialog(this, "¿Está seguro de que desea borrar todos los datos?", "Confirmación", JOptionPane.YES_NO_OPTION);
+		        if (respuesta == JOptionPane.YES_OPTION) {
+		            try (FileWriter fw = new FileWriter("productos.txt")) {
+		                // Sobreescribe el archivo con una cadena vacía, borrando todo el contenido
+		                fw.write("");
+		                JOptionPane.showMessageDialog(this, "Todos los datos han sido borrados.");
+		            } catch (IOException ex) {
+		                ex.printStackTrace();
+		            }
+		        }
+		    }
+		
 }

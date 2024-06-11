@@ -1,6 +1,7 @@
 package PRODUCTO;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JScrollPane;
@@ -9,6 +10,7 @@ import javax.swing.JTextArea;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -60,26 +62,31 @@ public class ListadoProd extends JFrame implements ActionListener{
 	
 	//Procesos del botón Listado
 	public void Listado(ActionEvent e) {
-		StringBuilder productos = new StringBuilder();
-        try (BufferedReader br = new BufferedReader(new FileReader("productos.txt"))) {
-            String linea;
-            boolean firstProduct = true;
-            while ((linea = br.readLine()) != null) {
-                if (!firstProduct && linea.trim().isEmpty()) {
-                    productos.append("-------------------\n");
-                    continue;
-                }
-                if (!linea.trim().isEmpty()) {
-                    productos.append(linea).append("\n");
-                    firstProduct = false;
-                }
-            }
-            txtResultado.setText(productos.toString());
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            txtResultado.setText("Error al leer el archivo de productos.");
-        }
-    }	
-	
+	        File file = new File("productos.txt");
+	        if (file.length() == 0) {
+	            JOptionPane.showMessageDialog(this, "NO SE HAN GUARDADO DATOS");
+	            txtResultado.setText("");
+	        } else {
+	            StringBuilder productos = new StringBuilder();
+	            try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+	                String linea;
+	                boolean firstProduct = true;
+	                while ((linea = br.readLine()) != null) {
+	                    if (!firstProduct && linea.trim().isEmpty()) {
+	                        productos.append("-------------------\n");
+	                        continue;
+	                    }
+	                    if (!linea.trim().isEmpty()) {
+	                        productos.append(linea).append("\n");
+	                        firstProduct = false;
+	                    }
+	                }
+	                txtResultado.setText(productos.toString());
+	            } catch (IOException ex) {
+	                ex.printStackTrace();
+	                txtResultado.setText("Error al leer el archivo de productos.");
+	            }
+	       }
+	}	
 
 }
