@@ -17,11 +17,6 @@ import CLIENTE.EliminacionCli;
 import CLIENTE.IngresoCli;
 import CLIENTE.ListadoCli;
 import CLIENTE.ModificacionCli;
-import PRODUCTO.ConsultaProd;
-import PRODUCTO.EliminacionProd;
-import PRODUCTO.IngresoProd;
-import PRODUCTO.ListadoProd;
-import PRODUCTO.ModificacionProd;
 
 import java.awt.Color;
 
@@ -33,24 +28,10 @@ public class TIENDA extends JFrame implements ActionListener{
 	private JMenuBar menuBar;
 	private JMenu mnOpciones;
 	private JMenu mnMantenimiento;
-	private JMenu mnClientes;
-	private JMenuItem mntmIngresoCli;
-	private JMenuItem mntmModificacionCli;
-	private JMenuItem mntmConsultaCli;
-	private JMenuItem mntmEliminacionCli;
-	private JMenuItem mntmListadoCli;
-	private JMenu mnProductos;
-	private JMenuItem mntmIngresoProd;
-	private JMenuItem mntmModificacionProd;
-	private JMenuItem mntmConsultaProd;
-	private JMenuItem mntmEliminacionProd;
-	private JMenuItem mntmListadoProd;
 	private JMenu mnAlmacen;
 	private JMenu mnReportes;
 	private JMenu mnVentas;
-
 	private JMenuItem mntmSalir;
-
 	private JMenuItem mntmBorrarDatos;
 
 	//Lanza la aplicación
@@ -103,51 +84,11 @@ public class TIENDA extends JFrame implements ActionListener{
 		mnMantenimiento.setForeground(Color.WHITE);
 		menuBar.add(mnMantenimiento);
 		
-		mnClientes = new JMenu("Clientes");
-		mnMantenimiento.add(mnClientes);
+		JMenuItem mntmClientes = new JMenuItem("Clientes");
+		mnMantenimiento.add(mntmClientes);
 		
-		mntmIngresoCli = new JMenuItem("Ingreso");
-		mntmIngresoCli.addActionListener(this);
-		mnClientes.add(mntmIngresoCli);
-		
-		mntmModificacionCli = new JMenuItem("Modificación");
-		mntmModificacionCli.addActionListener(this);
-		mnClientes.add(mntmModificacionCli);
-		
-		mntmConsultaCli = new JMenuItem("Consulta");
-		mntmConsultaCli.addActionListener(this);
-		mnClientes.add(mntmConsultaCli);
-		
-		mntmEliminacionCli = new JMenuItem("Eliminación");
-		mntmEliminacionCli.addActionListener(this);
-		mnClientes.add(mntmEliminacionCli);
-		
-		mntmListadoCli = new JMenuItem("Listado");
-		mntmListadoCli.addActionListener(this);
-		mnClientes.add(mntmListadoCli);
-		
-		mnProductos = new JMenu("Productos");
-		mnMantenimiento.add(mnProductos);
-		
-		mntmIngresoProd = new JMenuItem("Ingreso");
-		mntmIngresoProd.addActionListener(this);
-		mnProductos.add(mntmIngresoProd);
-		
-		mntmModificacionProd = new JMenuItem("Modificación");
-		mntmModificacionProd.addActionListener(this);
-		mnProductos.add(mntmModificacionProd);
-		
-		mntmConsultaProd = new JMenuItem("Consulta");
-		mntmConsultaProd.addActionListener(this);
-		mnProductos.add(mntmConsultaProd);
-		
-		mntmEliminacionProd = new JMenuItem("Eliminación");
-		mntmEliminacionProd.addActionListener(this);
-		mnProductos.add(mntmEliminacionProd);
-		
-		mntmListadoProd = new JMenuItem("Listado");
-		mntmListadoProd.addActionListener(this);
-		mnProductos.add(mntmListadoProd);
+		JMenuItem mntmProductos = new JMenuItem("Productos");
+		mnMantenimiento.add(mntmProductos);
 		
 		mnAlmacen = new JMenu("Almacén");
 		mnAlmacen.addActionListener(this);
@@ -174,45 +115,6 @@ public class TIENDA extends JFrame implements ActionListener{
 			actionPerfomedMntmSalir(e);
 		}
 		
-		if (mntmIngresoCli==e.getSource()) {
-			actionPerfomedMntmIngresoCli(e);
-		}
-		
-		if (mntmModificacionCli==e.getSource()) {
-			actionPerfomedMntmModificacionCli(e);
-		}
-		
-		if (mntmConsultaCli==e.getSource()) {
-			actionPerfomedMntmConsultaCli(e);
-		}
-		
-		if (mntmEliminacionCli==e.getSource()) {
-			actionPerfomedMntmEliminacionCli(e);
-		}
-		
-		if (mntmListadoCli==e.getSource()) {
-			actionPerfomedMntmListadoCli(e);
-		}
-		
-		if (mntmIngresoProd==e.getSource()) {
-			actionPerfomedMntmIngresoProd(e);
-		}
-		
-		if (mntmConsultaProd==e.getSource()) {
-			actionPerfomedMntmConsultaProd(e);
-		}
-				
-		if (mntmModificacionProd==e.getSource()) {
-			actionPerfomedMntmModificacionProd(e);
-		}
-		
-		if (mntmEliminacionProd==e.getSource()) {
-			actionPerfomedMntmEliminacionProd(e);
-		}
-		
-		if (mntmListadoProd==e.getSource()) {
-			actionPerfomedMntmListadoProd(e);
-		}
 		
 		if (mntmBorrarDatos==e.getSource()) {
 			actionPerfomedMntmBorrarDatos(e);
@@ -250,31 +152,6 @@ public class TIENDA extends JFrame implements ActionListener{
 			ventana5.setVisible(true);
 		}
 		
-		public void actionPerfomedMntmIngresoProd(ActionEvent e) {
-			IngresoProd ventana6 = new IngresoProd();
-			ventana6.setVisible(true);
-		}
-		
-		public void actionPerfomedMntmModificacionProd(ActionEvent e) {
-			ModificacionProd ventana7 = new ModificacionProd();
-			ventana7.setVisible(true);
-		}
-		
-		public void actionPerfomedMntmConsultaProd(ActionEvent e) {
-			ConsultaProd ventana8 = new ConsultaProd();
-			ventana8.setVisible(true);
-		}
-		
-		public void actionPerfomedMntmEliminacionProd(ActionEvent e) {
-			EliminacionProd ventana9 = new EliminacionProd();
-			ventana9.setVisible(true);
-		}
-		
-		public void actionPerfomedMntmListadoProd(ActionEvent e) {
-			ListadoProd ventana10 = new ListadoProd();
-			ventana10.setVisible(true);
-		}
-		
 		public void actionPerfomedMntmBorrarDatos(ActionEvent e) {
 		        int respuesta = JOptionPane.showConfirmDialog(this, "¿Está seguro de que desea borrar todos los datos?", "Confirmación", JOptionPane.YES_NO_OPTION);
 		        if (respuesta == JOptionPane.YES_OPTION) {
@@ -287,5 +164,4 @@ public class TIENDA extends JFrame implements ActionListener{
 		            }
 		        }
 		    }
-		
 }

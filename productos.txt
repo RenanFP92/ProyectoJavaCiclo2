@@ -1,0 +1,7 @@
+Código: 2001
+Nombre: pelota
+Precio: 12.0
+Stock Actual: 22
+Stock Mínimo: 2
+Stock Máximo: 30
+--------------------------------------------------
