@@ -90,5 +90,5 @@ public class ListadoProd extends JFrame implements ActionListener{
 	}	
 
 	
-	//comida
+	// hola mundo me llamo renan proyecto 2
 }
