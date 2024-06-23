@@ -11,13 +11,6 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
-
-import Arreglos.ConsultaCli;
-import Arreglos.EliminacionCli;
-import Arreglos.IngresoCli;
-import Arreglos.ListadoCli;
-import Arreglos.ModificacionCli;
-
 import java.awt.Color;
 
 public class TIENDA extends JFrame implements ActionListener{
