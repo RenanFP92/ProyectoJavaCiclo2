@@ -11,6 +11,9 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+
+import gui.FrmProducto;
+
 import java.awt.Color;
 
 public class TIENDA extends JFrame implements ActionListener{
@@ -26,9 +29,7 @@ public class TIENDA extends JFrame implements ActionListener{
 	private JMenu mnVentas;
 	private JMenuItem mntmSalir;
 	private JMenuItem mntmBorrarDatos;
-
 	private JMenuItem mntmClientes;
-
 	private JMenuItem mntmProductos;
 
 	//Lanza la aplicación
@@ -82,9 +83,11 @@ public class TIENDA extends JFrame implements ActionListener{
 		menuBar.add(mnMantenimiento);
 		
 		mntmClientes = new JMenuItem("Clientes");
+		mntmClientes.addActionListener(this);
 		mnMantenimiento.add(mntmClientes);
 		
 		mntmProductos = new JMenuItem("Productos");
+		mntmProductos.addActionListener(this);
 		mnMantenimiento.add(mntmProductos);
 		
 		mnAlmacen = new JMenu("Almacén");
@@ -116,10 +119,28 @@ public class TIENDA extends JFrame implements ActionListener{
 		if (mntmBorrarDatos==e.getSource()) {
 			actionPerfomedMntmBorrarDatos(e);
 		}
+		
+		if (mntmClientes==e.getSource()) {
+			actionPerformedMntmClientes(e);
+		}
+		
+		if (mntmProductos==e.getSource()) {
+			actionPerformedMntmProductos(e);
+		}
 	}
 	
 	
 	//Direcciona las acciones de los botones
+	
+		public void actionPerformedMntmClientes(ActionEvent e) {
+			
+		}
+		
+		public void actionPerformedMntmProductos(ActionEvent e) {
+			FrmProducto ventana2 = new FrmProducto ();
+			ventana2.setVisible(true);
+		}
+	
 		public void actionPerfomedMntmSalir(ActionEvent e) {
 			System.exit(0);
 		}

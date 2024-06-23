@@ -21,6 +21,8 @@ public class Producto {
 		this.stockMinimo = stockMinimo;
 		this.stockMaximo = stockMaximo;
 	}
+	
+	//Propiedades set/get
 
 	public int getCodigoProducto() {
 		return codigoProducto;
@@ -69,7 +71,5 @@ public class Producto {
 	public void setStockMaximo(int stockMaximo) {
 		this.stockMaximo = stockMaximo;
 	}
-	
-	//Propiedades set/get
-	
+		
 }

@@ -101,7 +101,7 @@ public class FrmProducto extends JFrame {
 	 */
 	public FrmProducto() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 824, 376);
+		setBounds(100, 100, 1135, 376);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -185,7 +185,7 @@ public class FrmProducto extends JFrame {
 		}
 		{
 			scrollPane = new JScrollPane();
-			scrollPane.setBounds(239, 37, 411, 289);
+			scrollPane.setBounds(239, 37, 741, 289);
 			contentPane.add(scrollPane);
 			{
 				miTabla = new JTable();
@@ -206,7 +206,7 @@ public class FrmProducto extends JFrame {
 				}
 			});
 			btnAgregar.setFont(new Font("Tahoma", Font.BOLD, 14));
-			btnAgregar.setBounds(670, 24, 117, 23);
+			btnAgregar.setBounds(992, 37, 117, 23);
 			contentPane.add(btnAgregar);
 		}
 		{
@@ -217,7 +217,7 @@ public class FrmProducto extends JFrame {
 				}
 			});
 			btnGrabar.setFont(new Font("Tahoma", Font.BOLD, 14));
-			btnGrabar.setBounds(670, 71, 117, 23);
+			btnGrabar.setBounds(992, 84, 117, 23);
 			contentPane.add(btnGrabar);
 		}
 		{
@@ -228,7 +228,7 @@ public class FrmProducto extends JFrame {
 				}
 			});
 			btnLeer.setFont(new Font("Tahoma", Font.BOLD, 14));
-			btnLeer.setBounds(670, 118, 117, 23);
+			btnLeer.setBounds(992, 131, 117, 23);
 			contentPane.add(btnLeer);
 		}
 		{
@@ -240,7 +240,7 @@ public class FrmProducto extends JFrame {
 			});
 			btnModificar.setEnabled(false);
 			btnModificar.setFont(new Font("Tahoma", Font.BOLD, 14));
-			btnModificar.setBounds(670, 165, 117, 23);
+			btnModificar.setBounds(992, 178, 117, 23);
 			contentPane.add(btnModificar);
 		}
 		{
@@ -252,7 +252,7 @@ public class FrmProducto extends JFrame {
 			});
 			btnEliminar.setEnabled(false);
 			btnEliminar.setFont(new Font("Tahoma", Font.BOLD, 14));
-			btnEliminar.setBounds(670, 212, 117, 23);
+			btnEliminar.setBounds(992, 225, 117, 23);
 			contentPane.add(btnEliminar);
 		}
 		{
