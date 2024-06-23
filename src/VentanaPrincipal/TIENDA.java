@@ -131,25 +131,7 @@ public class TIENDA extends JFrame implements ActionListener{
 			IngresoCli ventana1 = new IngresoCli ();
 			ventana1.setVisible(true);
 		}
-		
-		public void actionPerfomedMntmModificacionCli(ActionEvent e) {
-			ModificacionCli ventana2 = new ModificacionCli();
-			ventana2.setVisible(true);
-		}
-		
-		public void actionPerfomedMntmConsultaCli(ActionEvent e) {
-			ConsultaCli ventana3 = new ConsultaCli();
-			ventana3.setVisible(true);
-		}
-		
-		public void actionPerfomedMntmEliminacionCli(ActionEvent e) {
-			EliminacionCli ventana4 = new EliminacionCli();
-			ventana4.setVisible(true);
-		}
-		
-		public void actionPerfomedMntmListadoCli(ActionEvent e) {
-			ListadoCli ventana5 = new ListadoCli();
-			ventana5.setVisible(true);
+	
 		}
 		
 		public void actionPerfomedMntmBorrarDatos(ActionEvent e) {
