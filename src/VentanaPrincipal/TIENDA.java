@@ -12,11 +12,11 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
-import CLIENTE.ConsultaCli;
-import CLIENTE.EliminacionCli;
-import CLIENTE.IngresoCli;
-import CLIENTE.ListadoCli;
-import CLIENTE.ModificacionCli;
+import Arreglos.ConsultaCli;
+import Arreglos.EliminacionCli;
+import Arreglos.IngresoCli;
+import Arreglos.ListadoCli;
+import Arreglos.ModificacionCli;
 
 import java.awt.Color;
 
@@ -33,6 +33,10 @@ public class TIENDA extends JFrame implements ActionListener{
 	private JMenu mnVentas;
 	private JMenuItem mntmSalir;
 	private JMenuItem mntmBorrarDatos;
+
+	private JMenuItem mntmClientes;
+
+	private JMenuItem mntmProductos;
 
 	//Lanza la aplicación
 	public static void main(String[] args) {
@@ -84,10 +88,10 @@ public class TIENDA extends JFrame implements ActionListener{
 		mnMantenimiento.setForeground(Color.WHITE);
 		menuBar.add(mnMantenimiento);
 		
-		JMenuItem mntmClientes = new JMenuItem("Clientes");
+		mntmClientes = new JMenuItem("Clientes");
 		mnMantenimiento.add(mntmClientes);
 		
-		JMenuItem mntmProductos = new JMenuItem("Productos");
+		mntmProductos = new JMenuItem("Productos");
 		mnMantenimiento.add(mntmProductos);
 		
 		mnAlmacen = new JMenu("Almacén");
@@ -125,31 +129,6 @@ public class TIENDA extends JFrame implements ActionListener{
 	//Direcciona las acciones de los botones
 		public void actionPerfomedMntmSalir(ActionEvent e) {
 			System.exit(0);
-		}
-		
-		public void actionPerfomedMntmIngresoCli(ActionEvent e) {
-			IngresoCli ventana1 = new IngresoCli ();
-			ventana1.setVisible(true);
-		}
-		
-		public void actionPerfomedMntmModificacionCli(ActionEvent e) {
-			ModificacionCli ventana2 = new ModificacionCli();
-			ventana2.setVisible(true);
-		}
-		
-		public void actionPerfomedMntmConsultaCli(ActionEvent e) {
-			ConsultaCli ventana3 = new ConsultaCli();
-			ventana3.setVisible(true);
-		}
-		
-		public void actionPerfomedMntmEliminacionCli(ActionEvent e) {
-			EliminacionCli ventana4 = new EliminacionCli();
-			ventana4.setVisible(true);
-		}
-		
-		public void actionPerfomedMntmListadoCli(ActionEvent e) {
-			ListadoCli ventana5 = new ListadoCli();
-			ventana5.setVisible(true);
 		}
 		
 		public void actionPerfomedMntmBorrarDatos(ActionEvent e) {
