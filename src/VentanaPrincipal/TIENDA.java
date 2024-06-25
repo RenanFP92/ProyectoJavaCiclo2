@@ -62,7 +62,7 @@ public class TIENDA extends JFrame implements ActionListener{
 	
 	private void iniciarComponentes() {
 		
-		
+		//inicia componentes
 		
 		menuBar = new JMenuBar();
 		menuBar.setForeground(Color.BLACK);
