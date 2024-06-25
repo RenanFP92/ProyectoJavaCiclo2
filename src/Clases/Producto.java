@@ -71,5 +71,14 @@ public class Producto {
 	public void setStockMaximo(int stockMaximo) {
 		this.stockMaximo = stockMaximo;
 	}
+
+	@Override
+	public String toString() {
+		return "Producto [codigoProducto=" + codigoProducto + ", nombre=" + nombre + ", precio=" + precio
+				+ ", stockActual=" + stockActual + ", stockMinimo=" + stockMinimo + ", stockMaximo=" + stockMaximo
+				+ "]";
+	}
+	
+	
 		
 }
