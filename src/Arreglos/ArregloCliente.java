@@ -10,6 +10,8 @@ public class ArregloCliente {
 	//Campos y atributos 
 	private ArrayList <Cliente> miLista;
 	private String archivo = "Archivos txt/cliente.txt";  
+
+
 	
 	//Metodo constructor 
 	public  ArregloCliente () {

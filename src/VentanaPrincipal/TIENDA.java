@@ -32,6 +32,8 @@ public class TIENDA extends JFrame implements ActionListener{
 	private JMenuItem mntmBorrarDatos;
 	private JMenuItem mntmClientes;
 	private JMenuItem mntmProductos;
+	private String archivoProducto = "Archivos txt/productos.txt";
+	private String archivoCliente = "Archivos txt/cliente.txt";
 
 	//Lanza la aplicación
 	public static void main(String[] args) {
@@ -150,9 +152,11 @@ public class TIENDA extends JFrame implements ActionListener{
 		public void actionPerfomedMntmBorrarDatos(ActionEvent e) {
 		        int respuesta = JOptionPane.showConfirmDialog(this, "¿Está seguro de que desea borrar todos los datos?", "Confirmación", JOptionPane.YES_NO_OPTION);
 		        if (respuesta == JOptionPane.YES_OPTION) {
-		            try (FileWriter fw = new FileWriter("productos.txt")) {
+		            try (FileWriter fw1 = new FileWriter(archivoCliente);
+		            	 FileWriter fw2 = new FileWriter(archivoProducto) ) {
 		                // Sobreescribe el archivo con una cadena vacía, borrando todo el contenido
-		                fw.write("");
+		                fw1.write("");
+		                fw2.write("");
 		                JOptionPane.showMessageDialog(this, "Todos los datos han sido borrados.");
 		            } catch (IOException ex) {
 		                ex.printStackTrace();
