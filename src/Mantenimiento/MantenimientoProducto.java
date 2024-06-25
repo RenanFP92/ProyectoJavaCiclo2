@@ -90,4 +90,6 @@ import Clases.Producto;
 	        scanner.close();
 	    }
 	}
+	
+	//es almacen esclavo renan corrija xD
 
