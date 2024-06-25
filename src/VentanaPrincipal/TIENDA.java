@@ -12,6 +12,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
+import gui.FmrCliente;
 import gui.FrmProducto;
 
 import java.awt.Color;
@@ -133,7 +134,8 @@ public class TIENDA extends JFrame implements ActionListener{
 	//Direcciona las acciones de los botones
 	
 		public void actionPerformedMntmClientes(ActionEvent e) {
-			
+			FmrCliente ventana1 = new FmrCliente ();
+			ventana1.setVisible(true);
 		}
 		
 		public void actionPerformedMntmProductos(ActionEvent e) {
@@ -144,17 +146,7 @@ public class TIENDA extends JFrame implements ActionListener{
 		public void actionPerfomedMntmSalir(ActionEvent e) {
 			System.exit(0);
 		}
-		
-<<<<<<< HEAD
-		public void actionPerfomedMntmIngresoCli(ActionEvent e) {
-			IngresoCli ventana1 = new IngresoCli ();
-			ventana1.setVisible(true);
-		}
-	
-		}
-		
-=======
->>>>>>> a6f89390a456d8cc507f99f1bd9b24d6304f3097
+
 		public void actionPerfomedMntmBorrarDatos(ActionEvent e) {
 		        int respuesta = JOptionPane.showConfirmDialog(this, "¿Está seguro de que desea borrar todos los datos?", "Confirmación", JOptionPane.YES_NO_OPTION);
 		        if (respuesta == JOptionPane.YES_OPTION) {
