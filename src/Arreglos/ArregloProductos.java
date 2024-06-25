@@ -10,7 +10,7 @@ import Clases.Producto;
 public class ArregloProductos {
 	//Campos o atributos
 	private ArrayList<Producto> miLista;
-	private String nombreArchivo = "productos.txt";
+	private String nombreArchivo = "Archivos txt/productos.txt";
 	
 	//Método constructor
 	public ArregloProductos() {
