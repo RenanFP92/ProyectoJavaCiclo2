@@ -9,7 +9,11 @@ import Clases.Cliente;
 public class ArregloCliente {
 	//Campos y atributos 
 	private ArrayList <Cliente> miLista;
+<<<<<<< Updated upstream
 	private String archivo = "Archivos txt/cliente.txt";  
+=======
+	private String Archivostxt = "Archivos txt/cliente.txt";  
+>>>>>>> Stashed changes
 	
 	//Metodo constructor 
 	public  ArregloCliente () {
