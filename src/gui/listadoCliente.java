@@ -46,5 +46,6 @@ public class listadoCliente extends JFrame {
         }
         textArea.setText(obj.toString());
     }
+    //tengo hambre jajajaj
     
 }
