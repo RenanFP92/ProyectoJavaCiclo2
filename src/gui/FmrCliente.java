@@ -54,6 +54,7 @@ public class FmrCliente extends JFrame {
 	String[] Columnas = {"CODIGO CLIENTE","NOMBRES","APELLIDOS","DIRECCION","TELEFONO","DNI"};
 	Object[][] Filas;
 	int fila;
+	private JButton btnLeer;
 
 	// METODO DE CARGA DEL CONTROL JTABLE
 	void cargarJTable() {
@@ -76,6 +77,20 @@ public class FmrCliente extends JFrame {
 		// Asociar el objecto tabla al control JTable
 		tabla.setDataVector(Filas, Columnas);
 		miTabla.setModel(tabla);
+	}
+	
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					FmrCliente frame = new FmrCliente();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 
 	
@@ -221,6 +236,16 @@ public class FmrCliente extends JFrame {
 		});
 		btnEliminar.setBounds(595, 178, 89, 23);
 		contentPane.add(btnEliminar);
+		
+		btnLeer = new JButton("Listado");
+		btnLeer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Leer(e);
+			}
+		});
+		btnLeer.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnLeer.setBounds(595, 227, 89, 23);
+		contentPane.add(btnLeer);
 
 		cargarJTable();
 	}
@@ -257,10 +282,9 @@ public class FmrCliente extends JFrame {
 	}
 
 	// Boton Leer
-	protected void btnLeerActionPerformed(ActionEvent e) {
+	protected void Leer(ActionEvent e) {
 		lista.Leer();
 		cargarJTable();
-		UltimoCodigo();
 		LimpiarCajas();
 	}
 
@@ -298,25 +322,6 @@ public class FmrCliente extends JFrame {
 		btnEliminar.setEnabled(false);
 	}
 	
-	
-	 protected void Modificar() {
-	        try {
-	            int codigoCliente = Integer.parseInt(txtCodigo.getText());
-	            String nombres = txtNombre.getText();
-	            String apellidos = txtApellidos.getText();
-	            String direccion = txtDireccion.getText();
-	            String telefono = txtTelefono.getText();
-	            String dni = txtDni.getText();
-	            
-	            Cliente c = new Cliente (codigoCliente, nombres, apellidos, direccion,telefono,dni);
-	            lista.modificar(fila, c);
-	            
-	            cargarJTable();
-	            LimpiarCajas();
-	        } catch (Exception e) {
-	            JOptionPane.showMessageDialog(this, "Error: Verifique los datos ingresados.");
-	        }
-	    }
 
 	// Boton Eliminar
 	protected void Eliminar(ActionEvent e) {

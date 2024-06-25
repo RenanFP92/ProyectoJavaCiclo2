@@ -9,7 +9,7 @@ import Clases.Cliente;
 public class ArregloCliente {
 	//Campos y atributos 
 	private ArrayList <Cliente> miLista;
-	private String Archivostxt = "cliente.txt";  
+	private String archivo = "Archivos txt/cliente.txt";  
 	
 	//Metodo constructor 
 	public  ArregloCliente () {
@@ -51,27 +51,29 @@ public class ArregloCliente {
 	// Metodos para la gestión de archivos , el try y catch
 		public void Grabar() {
 			try {	// Crear un archivo en disco
-					FileWriter escritor = new FileWriter(Archivostxt);
-					// Grabar la información de la lista dinamica en el archivo
-					for(int i = 0; i < tamaño(); i++)
-						escritor.write(miLista.get(i).getCodigoCliente() + ";" +
-									miLista.get(i).getNombres() + ";" +
-									miLista.get(i).getDireccion() + ";" +
-									miLista.get(i).getTelefono() +
-									miLista.get(i).getDni()+"\n");
-					// Cerrar el archivo
-					escritor.close();
-			} catch (IOException e) {
-					System.out.println("*** ERROR:" + e.getMessage());
+				FileWriter escritor = new FileWriter(archivo);
+			     for (int i = 0; i < tamaño(); i++)  
+		                escritor.write(miLista.get(i).getCodigoCliente()+ ";" +
+		                               miLista.get(i).getNombres()+ ";" +
+		                               miLista.get(i).getApellidos() + ";" +
+		                               miLista.get(i).getDireccion() + ";" +
+		                               miLista.get(i).getTelefono() +  ";" +
+		                               miLista.get(i).getDni() + "\n");
+		            
+		            // Cerrar el archivo
+		            escritor.close();
+		        } catch (IOException e) {
+		            System.out.println("*** ERROR: " + e.getMessage());
+		        }
 			}
-		}
+	
 		
 		//Metodo leer 
 		public void Leer() {
 			String registro, campos[];
 			
 			try {
-					FileReader lector = new FileReader(Archivostxt);
+					FileReader lector = new FileReader(archivo);
 					BufferedReader lee = new BufferedReader(lector);
 					while((registro = lee.readLine()) != null) {
 						campos = registro.split(";");
