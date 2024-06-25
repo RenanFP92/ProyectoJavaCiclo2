@@ -53,26 +53,12 @@ public class FmrCliente extends JFrame {
 	String[] Columnas = {"CODIGO CLIENTE","NOMBRES","APELLIDOS","DIRECCION","TELEFONO","DNI"};
 	Object[][] Filas;
 	int fila;
-<<<<<<< Updated upstream
 	private JButton btnLeer;
-=======
 	private JLabel lblTitulo;
 	private JSeparator separator;
 	private int ultimoCodigo = 1001;  // Inicializar el código a partir de 1001
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					FmrCliente frame = new FmrCliente();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
->>>>>>> Stashed changes
+
 
 	// METODO DE CARGA DEL CONTROL JTABLE
 	void cargarJTable() {
@@ -366,26 +352,5 @@ public class FmrCliente extends JFrame {
 		btnModificar.setEnabled(false);
 		btnEliminar.setEnabled(false);
 	}
-<<<<<<< Updated upstream
 
-	// método keypressed para la caja txtCodigo
-	protected void txtCodigoKeyPressed(KeyEvent e) {
-		btnBuscar.setEnabled(txtCodigo.getText().length() > 0);
-	}
-
-	// Boton Buscar
-	protected void Buscar(ActionEvent e) {
-		int i = lista.buscar(Integer.parseInt(txtCodigo.getText()));
-		if (i > -1) {
-			JOptionPane.showMessageDialog(null, "ALUMNO ENCONTRADO\n" + "CODIGO :" + lista.obtener(i).getCodigoCliente()
-					+ "\n" + "NOMBRE :" + lista.obtener(i).getNombres() + "\n" + "APELLIDOS :"
-					+ lista.obtener(i).getApellidos() + "\n" + "DIRECCION:" + lista.obtener(i).getDireccion() + "\n"
-					+ "TELEFONO:" + lista.obtener(i).getTelefono() + "\n" + "DNI:" + lista.obtener(i).getDni());
-		} else {
-			JOptionPane.showMessageDialog(null, "NO EXISTE EL CODIGO");
-		}
-	}
-	
-=======
->>>>>>> Stashed changes
 }
