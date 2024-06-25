@@ -58,6 +58,7 @@ public class FmrCliente extends JFrame {
 
 	// METODO DE CARGA DEL CONTROL JTABLE
 	void cargarJTable() {
+		
 		// Instanciar el objecto de tipo DefaultTableModel
 		tabla = new DefaultTableModel();
 		// Agregar las columnas al visualizar
@@ -249,7 +250,11 @@ public class FmrCliente extends JFrame {
 
 		cargarJTable();
 	}
+	
+	//metodos de acciones de los botones  botones 
+	
 
+	
 	// Metodo Limpiar Cajas
 	protected void LimpiarCajas() {
 		txtCodigo.setText("");
@@ -283,8 +288,10 @@ public class FmrCliente extends JFrame {
 
 	// Boton Leer
 	protected void Leer(ActionEvent e) {
+		
+		listadoCliente ventana1 = new  listadoCliente(lista) ;
+		ventana1.setVisible(true);
 		lista.Leer();
-		cargarJTable();
 		LimpiarCajas();
 	}
 
@@ -351,4 +358,5 @@ public class FmrCliente extends JFrame {
 			JOptionPane.showMessageDialog(null, "NO EXISTE EL CODIGO");
 		}
 	}
+	
 }
