@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-1001;ruvi;mmmmm;hhhhh;jjj;ccc
-1001;ruvi;mmmmm;hhhhh;jjj;ccc
-1001;ruvi;mmmmm;hhhhh;jjj;ccc
-1002;ana;aaa;ccc;xxx;xx
-1002;111;111;111;1111111;11
-=======
->>>>>>> Stashed changes
+1001;renan;osorio; mmmmm; 1122;11111
+1002;camilo;peres;qqq;qqqq;eeeee
+1003;camil;parra;2222;2222;111
+1004;anuel;martinez;121w33;q1111;eeeee
