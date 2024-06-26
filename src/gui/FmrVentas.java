@@ -116,10 +116,12 @@ public class FmrVentas extends JFrame {
             txtResultado.setText("Cliente no encontrado en el archivo cliente.txt.");
             return;
         }
+        
         Cliente cliente = arregloClientes.obtener(indiceCliente);
 
         // Buscar el producto en el arreglo
         int indiceProducto = arregloProductos.buscar(Integer.parseInt(codigoProducto));
+        
         if (indiceProducto != -1) {
             Producto producto = arregloProductos.obtener(indiceProducto);
             if (producto.getStockActual() >= cantidad) {
@@ -201,3 +203,4 @@ public class FmrVentas extends JFrame {
         });
     }
 }
+//modificar y crear el scrollpanel
