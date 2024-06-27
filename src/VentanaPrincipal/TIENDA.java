@@ -12,6 +12,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
+import gui.Almacen;
 import gui.FmrCliente;
 import gui.FrmProducto;
 
@@ -25,15 +26,16 @@ public class TIENDA extends JFrame implements ActionListener{
 	private JMenuBar menuBar;
 	private JMenu mnOpciones;
 	private JMenu mnMantenimiento;
-	private JMenu mnAlmacen;
-	private JMenu mnReportes;
-	private JMenu mnVentas;
 	private JMenuItem mntmSalir;
 	private JMenuItem mntmBorrarDatos;
 	private JMenuItem mntmClientes;
 	private JMenuItem mntmProductos;
 	private String archivoProducto = "Archivos txt/productos.txt";
 	private String archivoCliente = "Archivos txt/cliente.txt";
+	private JMenu mnGestion;
+	private JMenuItem mntmVentas;
+	private JMenuItem mntmAlmacen;
+	private JMenuItem mntmReportes;
 
 	//Lanza la aplicación
 	public static void main(String[] args) {
@@ -93,20 +95,21 @@ public class TIENDA extends JFrame implements ActionListener{
 		mntmProductos.addActionListener(this);
 		mnMantenimiento.add(mntmProductos);
 		
-		mnAlmacen = new JMenu("Almacén");
-		mnAlmacen.addActionListener(this);
-		mnAlmacen.setForeground(Color.WHITE);
-		menuBar.add(mnAlmacen);
+		mnGestion = new JMenu("Gestión");
+		mnGestion.setForeground(Color.WHITE);
+		menuBar.add(mnGestion);
 		
-		mnReportes = new JMenu("Reportes");
-		mnReportes.addActionListener(this);
-		mnReportes.setForeground(Color.WHITE);
-		menuBar.add(mnReportes);
+		mntmVentas = new JMenuItem("Ventas");
+		mntmVentas.addActionListener(this);
+		mnGestion.add(mntmVentas);
 		
-		mnVentas = new JMenu("Ventas");
-		mnVentas.addActionListener(this);
-		mnVentas.setForeground(Color.WHITE);
-		menuBar.add(mnVentas);
+		mntmAlmacen = new JMenuItem("Almacén");
+		mntmAlmacen.addActionListener(this);
+		mnGestion.add(mntmAlmacen);
+		
+		mntmReportes = new JMenuItem("Reportes");
+		mntmReportes.addActionListener(this);
+		mnGestion.add(mntmReportes);
 		getContentPane().setLayout(null);
 	}
 	
@@ -130,6 +133,19 @@ public class TIENDA extends JFrame implements ActionListener{
 		if (mntmProductos==e.getSource()) {
 			actionPerformedMntmProductos(e);
 		}
+		
+		if (mntmVentas==e.getSource()) {
+			actionPerformedMntmVentas(e);
+		}
+		
+		if (mntmAlmacen==e.getSource()) {
+			actionPerformedMntmAlmacen(e);
+		}
+		
+		if (mntmReportes==e.getSource()) {
+			actionPerformedMntmReportes(e);
+		}
+		
 	}
 	
 	
@@ -144,6 +160,21 @@ public class TIENDA extends JFrame implements ActionListener{
 			FrmProducto ventana2 = new FrmProducto ();
 			ventana2.setVisible(true);
 		}
+		
+		public void actionPerformedMntmVentas(ActionEvent e) {
+			FrmProducto ventana3 = new FrmProducto ();
+			ventana3.setVisible(true);
+		}
+		
+		public void actionPerformedMntmAlmacen(ActionEvent e) {
+			Almacen ventana4 = new Almacen ();
+			ventana4.setVisible(true);
+		}
+		
+		public void actionPerformedMntmReportes(ActionEvent e) {
+			
+		}
+		
 	
 		public void actionPerfomedMntmSalir(ActionEvent e) {
 			System.exit(0);
