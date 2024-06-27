@@ -142,7 +142,7 @@ public class FmrVentas extends JFrame {
             Producto producto = arregloProductos.obtener(indiceProducto);
             if (producto.getStockActual() >= cantidad) {
             	
-                // Generar fecha actual
+                // Generar fecha actual 
                 String fechaVenta = new SimpleDateFormat("MM/dd/yyyy").format(new Date());
 
                 // Crear una venta con el código de venta proporcionado y la fecha actual
