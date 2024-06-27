@@ -352,8 +352,10 @@ public class FmrCliente extends JFrame {
 
 	// método click en el JTable
 	protected void miTablaMouseClicked(MouseEvent e) {
+		
 		// Recupera la fila seleccionada con el Mouse
 		fila = miTabla.getSelectedRow();
+		
 		// Recuperar los campos de la fila seleccionada
 		txtCodigo.setText(lista.obtener(fila).getCodigoCliente() + "");
 		txtNombre.setText(lista.obtener(fila).getNombres());
@@ -361,6 +363,7 @@ public class FmrCliente extends JFrame {
 		txtDireccion.setText(lista.obtener(fila).getDireccion() + "");
 		txtTelefono.setText(lista.obtener(fila).getTelefono() + "");
 		txtDni.setText(lista.obtener(fila).getDni() + "");
+		
 		// Habilitar los botones modificar y eliminar
 		btnModificar.setEnabled(true);
 		btnEliminar.setEnabled(true);
