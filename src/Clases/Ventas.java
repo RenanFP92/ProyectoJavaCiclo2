@@ -22,6 +22,7 @@ public class Ventas {
         this.cantidadUnidades = cantidad;
         this.precioUnitario = producto.getPrecio();
         this.importeSubtotal = cantidad * precioUnitario;
+        //aqui ya sin metodo lo estoy ejecutando  directo  la logica
         this.importeIGV = importeSubtotal * 0.18; // 18% IGV
         this.importeTotal = importeSubtotal + importeIGV;
         this.codigoVenta = codigoVenta;

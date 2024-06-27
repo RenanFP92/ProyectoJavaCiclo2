@@ -35,6 +35,8 @@ import Clases.Producto;
 	        }
 	    }
 
+	    
+	    
 	    public Producto buscarProductoPorCodigo(int codigoProducto) {
 	        for (Producto producto : productos) {
 	            if (producto.getCodigoProducto() == codigoProducto) {
@@ -43,6 +45,8 @@ import Clases.Producto;
 	        }
 	        return null;
 	    }
+	    
+	    
 
 	    public boolean actualizarStock(int codigoProducto, int cantidad) {
 	        Producto producto = buscarProductoPorCodigo(codigoProducto);
