@@ -91,5 +91,5 @@ import Clases.Producto;
 	    }
 	}
 	
-	//es almacen esclavo renan corrija xD
+	//"es almacen esclavo renan corrija xD" escrito por Ruvi Rivera 
 

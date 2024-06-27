@@ -23,21 +23,21 @@ public class FmrVentas extends JFrame {
     private JTextField txtCodigoCliente;
     private JTextField txtCodigoProducto;
     private JTextField txtCantidad;
-    private JTextField txtCodigoVenta; // Nuevo campo para el código de venta
+    private JTextField txtCodigoVenta; 
     private JLabel lblCodigoCliente;
     private JLabel lblCodigoProducto;
     private JLabel lblCantidad;
-    private JLabel lblCodigoVenta; // Nuevo label para el código de venta
+    private JLabel lblCodigoVenta; 
     private JButton btnBoleta;
 
     private ArregloProductos arregloProductos;
     private ArregloCliente arregloClientes;
     private Map<String, List<Ventas>> ventasPorCliente; // Mapa para almacenar las ventas por cada cliente
-    private JScrollPane scrollPane;
     private JScrollPane scrollPane_1;
     private JTextArea txtResultado;
 
     public FmrVentas() {
+    	setTitle("Ventas");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 613, 345);
         contentPane = new JPanel();

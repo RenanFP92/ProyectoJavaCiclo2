@@ -91,6 +91,11 @@ public class ArregloCliente {
 				System.out.println("*** ERROR:" + e.getMessage());
 			}		
 		}
+
+		public void limpiar() {
+			miLista.clear();
+			
+		}
 	}
 		
 	

@@ -53,10 +53,13 @@ public class FmrCliente extends JFrame {
 	String[] Columnas = {"CODIGO CLIENTE","NOMBRES","APELLIDOS","DIRECCION","TELEFONO","DNI"};
 	Object[][] Filas;
 	int fila;
-	private JButton btnLeer;
 	private JLabel lblTitulo;
 	private JSeparator separator;
 	private int ultimoCodigo = 1001;  // Inicializar el código a partir de 1001
+	private JTextField txtBuscarCodigo;
+	private JLabel lblBuscarCodigo;
+	private JButton btnLeer;
+	private JButton btnListado;
 
 
 
@@ -99,7 +102,8 @@ public class FmrCliente extends JFrame {
 	}
 
 	public FmrCliente() {
-		setBounds(100, 100, 1135, 376);
+		setTitle("Mantenimiento Clientes");
+		setBounds(100, 100, 1135, 434);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
@@ -109,68 +113,74 @@ public class FmrCliente extends JFrame {
 
 		lblcodigoCliente = new JLabel("CÓDIGO :");
 		lblcodigoCliente.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblcodigoCliente.setBounds(21, 42, 125, 23);
+		lblcodigoCliente.setBounds(21, 63, 125, 23);
 		contentPane.add(lblcodigoCliente);
 
 		lblNombre = new JLabel("NOMBRE :");
-		lblNombre.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblNombre.setBounds(21, 95, 70, 14);
+		lblNombre.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNombre.setBounds(21, 186, 112, 14);
 		contentPane.add(lblNombre);
 
 		lblApellidos = new JLabel("APELLIDOS :");
-		lblApellidos.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblApellidos.setBounds(21, 135, 80, 14);
+		lblApellidos.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblApellidos.setBounds(21, 226, 112, 14);
 		contentPane.add(lblApellidos);
 
 		lblDireccion = new JLabel("DIRECCIÓN :");
-		lblDireccion.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblDireccion.setBounds(21, 181, 80, 14);
+		lblDireccion.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblDireccion.setBounds(21, 272, 112, 14);
 		contentPane.add(lblDireccion);
 
 		lblTelefono = new JLabel("TELÉFONO :");
-		lblTelefono.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblTelefono.setBounds(21, 230, 80, 14);
+		lblTelefono.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblTelefono.setBounds(21, 321, 112, 14);
 		contentPane.add(lblTelefono);
 
 		lblDni = new JLabel("DNI :");
-		lblDni.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblDni.setBounds(21, 273, 46, 14);
+		lblDni.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblDni.setBounds(21, 364, 112, 14);
 		contentPane.add(lblDni);
 
 		txtCodigo = new JTextField();
-		txtCodigo.setBounds(143, 45, 86, 20);
+		txtCodigo.setFont(new Font("Tahoma", Font.BOLD, 14));
+		txtCodigo.setBounds(143, 66, 86, 20);
 		txtCodigo.setEditable(false);  // Hacer el campo de código no editable
 		contentPane.add(txtCodigo);
 		txtCodigo.setColumns(10);
 
 		txtNombre = new JTextField();
+		txtNombre.setFont(new Font("Tahoma", Font.BOLD, 14));
 		txtNombre.setForeground(new Color(0, 0, 0));
-		txtNombre.setBounds(143, 95, 86, 20);
+		txtNombre.setBounds(143, 186, 86, 20);
 		contentPane.add(txtNombre);
 		txtNombre.setColumns(10);
 
 		txtApellidos = new JTextField();
-		txtApellidos.setBounds(143, 135, 86, 20);
+		txtApellidos.setFont(new Font("Tahoma", Font.BOLD, 14));
+		txtApellidos.setBounds(143, 226, 86, 20);
 		contentPane.add(txtApellidos);
 		txtApellidos.setColumns(10);
 
 		txtDireccion = new JTextField();
-		txtDireccion.setBounds(143, 181, 86, 20);
+		txtDireccion.setFont(new Font("Tahoma", Font.BOLD, 14));
+		txtDireccion.setBounds(143, 272, 86, 20);
 		contentPane.add(txtDireccion);
 		txtDireccion.setColumns(10);
 
 		txtTelefono = new JTextField();
-		txtTelefono.setBounds(143, 228, 86, 20);
+		txtTelefono.setFont(new Font("Tahoma", Font.BOLD, 14));
+		txtTelefono.setBounds(143, 319, 86, 20);
 		contentPane.add(txtTelefono);
 		txtTelefono.setColumns(10);
 
 		txtDni = new JTextField();
-		txtDni.setBounds(143, 273, 86, 20);
+		txtDni.setFont(new Font("Tahoma", Font.BOLD, 14));
+		txtDni.setBounds(143, 364, 86, 20);
 		contentPane.add(txtDni);
 		txtDni.setColumns(10);
 
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(239, 37, 771, 275);
+		scrollPane.setBounds(239, 37, 750, 347);
 		contentPane.add(scrollPane);
 
 		miTabla = new JTable();
@@ -184,7 +194,7 @@ public class FmrCliente extends JFrame {
 
 		separator = new JSeparator();
 		separator.setBackground(Color.DARK_GRAY);
-		separator.setBounds(10, 72, 219, 2);
+		separator.setBounds(10, 173, 219, 2);
 		contentPane.add(separator);
 
 		btnAgregar = new JButton("Agregar");
@@ -193,8 +203,8 @@ public class FmrCliente extends JFrame {
 				Agregar(e);
 			}
 		});
-		btnAgregar.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnAgregar.setBounds(1020, 41, 89, 23);
+		btnAgregar.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnAgregar.setBounds(999, 41, 110, 23);
 		contentPane.add(btnAgregar);
 
 		btnModificar = new JButton("Modificar");
@@ -203,8 +213,8 @@ public class FmrCliente extends JFrame {
 				Modificar(e);
 			}
 		});
-		btnModificar.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnModificar.setBounds(1020, 132, 89, 23);
+		btnModificar.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnModificar.setBounds(999, 171, 110, 23);
 		contentPane.add(btnModificar);
 
 		btnGrabar = new JButton("Grabar");
@@ -213,52 +223,80 @@ public class FmrCliente extends JFrame {
 				Grabar(e);
 			}
 		});
-		btnGrabar.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnGrabar.setBounds(1020, 81, 89, 23);
+		btnGrabar.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnGrabar.setBounds(999, 81, 110, 23);
 		contentPane.add(btnGrabar);
 
 		btnEliminar = new JButton("Eliminar");
-		btnEliminar.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnEliminar.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnEliminar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Eliminar(e);
 			}
 		});
-		btnEliminar.setBounds(1020, 178, 89, 23);
+		btnEliminar.setBounds(999, 217, 110, 23);
 		contentPane.add(btnEliminar);
-		
-		btnLeer = new JButton("Listado");
-		btnLeer.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Leer(e);
-			}
-		});
-		btnLeer.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnLeer.setBounds(595, 227, 89, 23);
-		contentPane.add(btnLeer);
 
 		btnAbrirBusqueda = new JButton("Buscar");
-		btnAbrirBusqueda.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnAbrirBusqueda.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnAbrirBusqueda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				abrirBusquedaCliente();
 			}
 		});
-		btnAbrirBusqueda.setBounds(1020, 227, 89, 23);
+		btnAbrirBusqueda.setBounds(143, 139, 89, 23);
 		contentPane.add(btnAbrirBusqueda);
 		
 		lblTitulo = new JLabel("MANTENIMIENTO DE CLIENTES");
-		lblTitulo.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblTitulo.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblTitulo.setBounds(21, 11, 239, 14);
 		contentPane.add(lblTitulo);
+		
+		txtBuscarCodigo = new JTextField();
+		txtBuscarCodigo.setBounds(21, 142, 86, 20);
+		contentPane.add(txtBuscarCodigo);
+		txtBuscarCodigo.setColumns(10);
+		
+		lblBuscarCodigo = new JLabel("BUSCAR POR CÓDIGO :");
+		lblBuscarCodigo.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblBuscarCodigo.setBounds(21, 114, 173, 14);
+		contentPane.add(lblBuscarCodigo);
+		
+		btnLeer = new JButton("Leer");
+		btnLeer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Leer();
+			}
+		});
+		btnLeer.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnLeer.setBounds(999, 127, 110, 23);
+		contentPane.add(btnLeer);
+		
+		btnListado = new JButton("Listado");
+		btnListado.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Listado();
+			}
+		});
+		btnListado.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnListado.setBounds(999, 263, 110, 23);
+		contentPane.add(btnListado);
 
 		cargarJTable();
 		UltimoCodigo();  // Inicializar el código al cargar la ventana
 	}
 
 	private void abrirBusquedaCliente() {
-		buscarCliente busquedaCliente = new buscarCliente(lista);
-		busquedaCliente.setVisible(true);
+		int i = lista.buscar(Integer.parseInt(txtBuscarCodigo.getText()));
+		if(i > -1) {
+			JOptionPane.showMessageDialog(null,"CLIENTE ENCONTRADO\n" +
+									"CODIGO :" + lista.obtener(i).getCodigoCliente() + "\n" +
+									"NOMBRE :" + lista.obtener(i).getNombres() + "\n" +
+									"APELLIDO :" + lista.obtener(i).getApellidos() + "\n" +
+									"DNI :" + lista.obtener(i).getDni() + "\n" +
+									"DIRECCIÓN :" + lista.obtener(i).getDireccion() + "\n" +
+									"TELÉFONO :" + lista.obtener(i).getTelefono());
+		}else JOptionPane.showMessageDialog(null,"NO EXISTE EL CLIENTE CON EL CÓDIGO INTRODUCIDO");
 	}
 	
 	//metodos de acciones de los botones  botones 
@@ -295,14 +333,13 @@ public class FmrCliente extends JFrame {
 		lista.Grabar();
 		JOptionPane.showMessageDialog(null, "SE HAN GRABADO EN EL ARCHIVO");
 	}
-
-	// Boton Leer
-	protected void Leer(ActionEvent e) {
-		
-		listadoCliente ventana1 = new  listadoCliente(lista) ;
-		ventana1.setVisible(true);
-		lista.Leer();
-		LimpiarCajas();
+	
+	//Botón Leer
+	protected void Leer() {
+		lista.limpiar();  // Limpiar la lista antes de leer
+        lista.Leer();
+        cargarJTable();
+        UltimoCodigo();
 	}
 
 	// método para devolver el último codigo
@@ -352,5 +389,10 @@ public class FmrCliente extends JFrame {
 		btnModificar.setEnabled(false);
 		btnEliminar.setEnabled(false);
 	}
-
+	
+	//Boton Listado
+	protected void Listado() {
+		listadoCliente ventana1 = new listadoCliente(lista);
+		ventana1.setVisible(true);
+	}
 }

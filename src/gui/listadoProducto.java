@@ -1,24 +1,26 @@
-
 package gui;
 
+
 import java.awt.BorderLayout;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
-import Arreglos.ArregloCliente;
-import Clases.Cliente;
 
-public class listadoCliente extends JFrame {
-    private static final long serialVersionUID = 1L;
-    private JPanel contentPane;
-    private JTextArea textArea;
+import Arreglos.ArregloProductos;
+import Clases.Producto;
 
-    public listadoCliente(ArregloCliente lista) {
-    	setTitle("Listado de Clientes");
-    	
-        setBounds(100, 100, 450, 300);
+public class listadoProducto extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private JTextArea textArea;
+
+	public listadoProducto(ArregloProductos lista) {
+		setTitle("Listado de Productos");
+		setBounds(100, 100, 450, 300);
         contentPane = new JPanel();
         setLocationRelativeTo(null);
 		setResizable(false);
@@ -33,20 +35,18 @@ public class listadoCliente extends JFrame {
         
     
         cargarDatos(lista);
-    }
-
-    private void cargarDatos(ArregloCliente lista) {
+	}
+	
+	private void cargarDatos(ArregloProductos lista) {
         StringBuilder obj = new StringBuilder();
         for (int i = 0; i < lista.tamaño(); i++) {
-            Cliente cliente = lista.obtener(i);
-            obj.append("Codigo: " + cliente.getCodigoCliente() + 
-              "\nNombre: " + cliente.getNombres() +
-              "\nApellidos: " + cliente.getApellidos()+
+            Producto producto = lista.obtener(i);
+            obj.append("Codigo: " + producto.getCodigoProducto() + 
+              "\nNombre: " + producto.getNombre() +
               "\n-----------------------------------------------------------" + "\n" );
        
         }
         textArea.setText(obj.toString());
     }
-    //tengo hambre jajajaj por Ruvi Rivera
-    
+
 }
