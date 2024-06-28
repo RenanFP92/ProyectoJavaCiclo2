@@ -13,13 +13,13 @@ public class Producto {
 	public Producto() {
 	}
 
-	public Producto(int codigoProducto, String nombre, double precio, int stockActual, int stockMinimo, int stockMaximo) {
+	public Producto(int codigoProducto, String nombre, double precio, int stockActual, int stockMaximo,int stockMinimo) {
 		this.codigoProducto = codigoProducto;
 		this.nombre = nombre;
 		this.precio = precio;
 		this.stockActual = stockActual;
-		this.stockMinimo = stockMinimo;
 		this.stockMaximo = stockMaximo;
+		this.stockMinimo = stockMinimo;
 	}
 	
 	//Propiedades set/get
@@ -56,6 +56,14 @@ public class Producto {
 		this.stockActual = stockActual;
 	}
 
+	public int getStockMaximo() {
+		return stockMaximo;
+	}
+
+	public void setStockMaximo(int stockMaximo) {
+		this.stockMaximo = stockMaximo;
+	}
+	
 	public int getStockMinimo() {
 		return stockMinimo;
 	}
@@ -64,19 +72,13 @@ public class Producto {
 		this.stockMinimo = stockMinimo;
 	}
 
-	public int getStockMaximo() {
-		return stockMaximo;
-	}
-
-	public void setStockMaximo(int stockMaximo) {
-		this.stockMaximo = stockMaximo;
-	}
+	
 
 	@Override
 	public String toString() {
 		return "Producto [codigoProducto=" + codigoProducto + ", nombre=" + nombre + ", precio=" + precio
-				+ ", stockActual=" + stockActual + ", stockMinimo=" + stockMinimo + ", stockMaximo=" + stockMaximo
-				+ "]";
+				+ ", stockActual=" + stockActual + ", stockMaximo=" + stockMaximo
+				+ ", stockMinimo=" + stockMinimo +  "]";
 	}
 	
 	

@@ -34,10 +34,12 @@ public class Almacen extends JFrame {
     ArregloProductos lista = new ArregloProductos();
     private JButton btnGuardar;
     private int indiceProducto = -1;
+    private JTextField txtStockMinimo;
+	private JLabel lblStockMinimo;
 
     public Almacen() {
         setTitle("Almacen");
-        setBounds(100, 100, 450, 210);
+        setBounds(100, 100, 450, 235);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
@@ -108,8 +110,19 @@ public class Almacen extends JFrame {
             }
         });
         btnGuardar.setFont(new Font("Tahoma", Font.BOLD, 14));
-        btnGuardar.setBounds(335, 139, 89, 23);
+        btnGuardar.setBounds(321, 162, 103, 23);
         contentPane.add(btnGuardar);
+        
+        lblStockMinimo = new JLabel("STOCK MÍNIMO :");
+        lblStockMinimo.setFont(new Font("Tahoma", Font.BOLD, 14));
+        lblStockMinimo.setBounds(10, 132, 189, 14);
+        contentPane.add(lblStockMinimo);
+        
+        txtStockMinimo = new JTextField();
+        txtStockMinimo.setEditable(false);
+        txtStockMinimo.setColumns(10);
+        txtStockMinimo.setBounds(209, 131, 215, 20);
+        contentPane.add(txtStockMinimo);
     }
 
     public void buscar() {
@@ -121,6 +134,7 @@ public class Almacen extends JFrame {
             txtNombreProducto.setText(producto.getNombre());
             txtStockActual.setText(String.valueOf(producto.getStockActual()));
             txtStockMaximo.setText(String.valueOf(producto.getStockMaximo()));
+            txtStockMinimo.setText(String.valueOf(producto.getStockMinimo()));
         } else {
             JOptionPane.showMessageDialog(null, "Producto no encontrado");
             LimpiarCajas();
@@ -129,9 +143,11 @@ public class Almacen extends JFrame {
 
     public void guardar() {
         if (indiceProducto != -1) {
-            Producto producto = lista.obtener(indiceProducto);
-            producto.setStockActual(Integer.parseInt(txtStockActual.getText()));
-            lista.modificar(indiceProducto, producto);
+            Producto producto = lista.obtener(indiceProducto);            
+            producto.setStockActual(Integer.parseInt(txtStockActual.getText()));            
+            producto.setStockMaximo(Integer.parseInt(txtStockMaximo.getText()));            
+            producto.setStockMinimo(Integer.parseInt(txtStockMinimo.getText()));            
+            lista.modificar(indiceProducto, producto);            
             lista.Grabar();
             JOptionPane.showMessageDialog(null, "Stock actualizado y guardado");
             LimpiarCajas();
@@ -141,10 +157,6 @@ public class Almacen extends JFrame {
     }
 
     public void LimpiarCajas() {
-        txtCodigoProducto.setText("");
-        txtNombreProducto.setText("");
-        txtStockActual.setText("");
-        txtStockMaximo.setText("");
-        txtCodigoProducto.requestFocus();
+    	lista.limpiar();
     }
 }
