@@ -42,6 +42,8 @@ public class Almacen extends JFrame {
         setBounds(100, 100, 450, 235);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        setLocationRelativeTo(null);
+		setResizable(false);
         setContentPane(contentPane);
         contentPane.setLayout(null);
 
@@ -143,19 +145,24 @@ public class Almacen extends JFrame {
 
     public void guardar() {
         if (indiceProducto != -1) {
-            Producto producto = lista.obtener(indiceProducto);            
-            producto.setStockActual(Integer.parseInt(txtStockActual.getText()));            
-            producto.setStockMaximo(Integer.parseInt(txtStockMaximo.getText()));            
-            producto.setStockMinimo(Integer.parseInt(txtStockMinimo.getText()));            
-            lista.modificar(indiceProducto, producto);            
-            lista.Grabar();
-            JOptionPane.showMessageDialog(null, "Stock actualizado y guardado");
-            LimpiarCajas();
+            int stockActual = Integer.parseInt(txtStockActual.getText());
+            int stockMaximo = Integer.parseInt(txtStockMaximo.getText());
+            if (stockActual > stockMaximo) {
+                JOptionPane.showMessageDialog(null, "El stock actual no puede ser mayor que el stock máximo");
+            } else {
+                Producto producto = lista.obtener(indiceProducto);
+                producto.setStockActual(stockActual);
+                producto.setStockMaximo(stockMaximo);
+                producto.setStockMinimo(Integer.parseInt(txtStockMinimo.getText()));
+                lista.modificar(indiceProducto, producto);
+                lista.Grabar();
+                JOptionPane.showMessageDialog(null, "Stock actualizado y guardado");
+                LimpiarCajas();
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Primero debe buscar un producto");
         }
     }
-
     public void LimpiarCajas() {
     	lista.limpiar();
     }

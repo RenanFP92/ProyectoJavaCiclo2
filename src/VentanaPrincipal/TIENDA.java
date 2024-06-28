@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 import gui.Almacen;
 import gui.FmrCliente;
 import gui.FrmProducto;
+import gui.Reportes;
 
 import java.awt.Color;
 
@@ -172,7 +173,8 @@ public class TIENDA extends JFrame implements ActionListener{
 		}
 		
 		public void actionPerformedMntmReportes(ActionEvent e) {
-			
+			Reportes ventana5 = new Reportes ();
+			ventana5.setVisible(true);
 		}
 		
 	
