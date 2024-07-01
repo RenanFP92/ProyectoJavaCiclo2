@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 
 import gui.Almacen;
 import gui.FmrCliente;
+import gui.FmrVentas;
 import gui.FrmProducto;
 import gui.Reportes;
 
@@ -163,7 +164,7 @@ public class TIENDA extends JFrame implements ActionListener{
 		}
 		
 		public void actionPerformedMntmVentas(ActionEvent e) {
-			FrmProducto ventana3 = new FrmProducto ();
+			FmrVentas ventana3 = new FmrVentas();
 			ventana3.setVisible(true);
 		}
 		

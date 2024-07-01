@@ -1,42 +1,63 @@
 package Clases;
 
-
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
-
 public class Ventas {
-    private Cliente cliente;
-    private Producto producto;
-    private int cantidadUnidades;
-    private double precioUnitario;
-    private double importeSubtotal;
-    private double importeIGV;
-    private double importeTotal;
-    private String codigoVenta;
-    private String fechaVenta;
+    private int codigoVenta;
+    private String codigoCliente;
+    private String nombres;
+    private String apellidos;
+    private String codigoProducto;
+    private String nombreProducto;
+    private int cantidad;
+    private double precio;
+    private Date fecha;
 
-    public Ventas(Cliente cliente, Producto producto, int cantidad, String codigoVenta, String fechaVenta) {
-        this.cliente = cliente;
-        this.producto = producto;
-        this.cantidadUnidades = cantidad;
-        this.precioUnitario = producto.getPrecio();
-        this.importeSubtotal = cantidad * precioUnitario;
-        //aqui ya sin metodo lo estoy ejecutando  directo  la logica
-        this.importeIGV = importeSubtotal * 0.18; // 18% IGV
-        this.importeTotal = importeSubtotal + importeIGV;
+    public Ventas(int codigoVenta, String codigoCliente, String nombres, String apellidos, String codigoProducto, String nombreProducto, int cantidad, double precio, Date fecha) {
         this.codigoVenta = codigoVenta;
-        this.fechaVenta = fechaVenta;
+        this.codigoCliente = codigoCliente;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.codigoProducto = codigoProducto;
+        this.nombreProducto = nombreProducto;
+        this.cantidad = cantidad;
+        this.precio = precio;
+        this.fecha = fecha;
     }
 
-    // Getters
-    public Cliente getCliente() { return cliente; }
-    public Producto getProducto() { return producto; }
-    public int getCantidadUnidades() { return cantidadUnidades; }
-    public double getPrecioUnitario() { return precioUnitario; }
-    public double getImporteSubtotal() { return importeSubtotal; }
-    public double getImporteIGV() { return importeIGV; }
-    public double getImporteTotal() { return importeTotal; }
-    public String getCodigoVenta() { return codigoVenta; }
-    public String getFechaVenta() { return fechaVenta; }
+    public int getCodigoVenta() {
+        return codigoVenta;
+    }
+
+    public String getCodigoCliente() {
+        return codigoCliente;
+    }
+
+    public String getNombres() {
+        return nombres;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public String getCodigoProducto() {
+        return codigoProducto;
+    }
+
+    public String getNombreProducto() {
+        return nombreProducto;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
 }
