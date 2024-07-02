@@ -12,6 +12,9 @@ import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
+import Arreglos.ArregloCliente;
+import Arreglos.ArregloProductos;
+import Arreglos.ArregloVentas;
 import gui.Almacen;
 import gui.FmrCliente;
 import gui.FmrVentas;
@@ -38,6 +41,11 @@ public class TIENDA extends JFrame implements ActionListener{
 	private JMenuItem mntmVentas;
 	private JMenuItem mntmAlmacen;
 	private JMenuItem mntmReportes;
+	
+	// Instancias de los arreglos
+    private ArregloCliente arregloCliente;
+    private ArregloProductos arregloProductos;
+    private ArregloVentas arregloVentas;
 
 	//Lanza la aplicación
 	public static void main(String[] args) {
@@ -61,6 +69,16 @@ public class TIENDA extends JFrame implements ActionListener{
 		setLocationRelativeTo(null);
 		setResizable(false);
 		iniciarComponentes();
+		
+		// Inicializa los arreglos
+	    arregloCliente = new ArregloCliente();
+	    arregloProductos = new ArregloProductos();
+	    arregloVentas = new ArregloVentas();
+	    
+	    // Cargar datos de los archivos
+	    arregloCliente.Leer();
+	    arregloProductos.Leer();
+	    arregloVentas.cargarVentas();
 		
 	}
 	
@@ -164,9 +182,9 @@ public class TIENDA extends JFrame implements ActionListener{
 		}
 		
 		public void actionPerformedMntmVentas(ActionEvent e) {
-			FmrVentas ventana3 = new FmrVentas();
-			ventana3.setVisible(true);
-		}
+	        FmrVentas ventana3 = new FmrVentas(arregloCliente, arregloProductos, arregloVentas);
+	        ventana3.setVisible(true);
+	    }
 		
 		public void actionPerformedMntmAlmacen(ActionEvent e) {
 			Almacen ventana4 = new Almacen ();

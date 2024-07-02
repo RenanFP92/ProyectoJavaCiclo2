@@ -251,13 +251,8 @@ public class FmrVentas extends JFrame {
 
             Ventas venta = new Ventas(codigoVenta, codigoCliente, nombres, apellidos, codigoProducto, nombreProducto, cantidad, precio, fecha);
             arregloVentas.agregarVenta(venta);
-			//////////////////////////////////////////////////
-			// Actualizar el stock del producto
-			int codigoProd = Integer.parseInt(codigoProducto);
-			arregloProductos.actualizarStock(codigoProd, cantidad);
-			//////////////////
             JOptionPane.showMessageDialog(this, "Venta realizada con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE);
- 
+            
             // Generar nuevo código de venta para la siguiente venta
             txtCodigoVenta.setText(String.valueOf(arregloVentas.generarCodigoVenta()));
         } catch (NumberFormatException ex) {
@@ -268,8 +263,4 @@ public class FmrVentas extends JFrame {
     private void inicializarCodigoVenta() {
         txtCodigoVenta.setText(String.valueOf(arregloVentas.generarCodigoVenta()));
     }
-    
-
-
-   
 }
