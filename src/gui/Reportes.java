@@ -92,6 +92,7 @@ public class Reportes extends JFrame {
 	}
 	
 	public void ListadoDeStockMinimo(ArregloProductos listaProductos) {
+		listaProductos.limpiar();
 		listaProductos.Leer(); // Asegúrate de leer los datos
 		boolean hayProductoFueraDeStockMinimo = false;
         StringBuilder obj = new StringBuilder();
@@ -115,6 +116,7 @@ public class Reportes extends JFrame {
 	}
 	
 	public void ListadoGeneral(ArregloVentas listaVentas) {
+		listaVentas.limpiar();
 		listaVentas.cargarVentas();
 		StringBuilder obj = new StringBuilder();
         for (int i = 0; i < listaVentas.tamaño(); i++) {
@@ -132,12 +134,13 @@ public class Reportes extends JFrame {
 	}
 	
 	public void UnidadesVendidasPorProducto() {
-	    // Reiniciar la lista de ventas para evitar acumulaciones
-	    listaVentas = new ArregloVentas();
-	    limpiar();
-	    // Leer los productos y cargar las ventas
-	    listaProductos.Leer();
-	    listaVentas.cargarVentas();
+		//Limpiar txtArea
+		listaProductos.limpiar();
+		listaVentas.limpiar();
+		//llamo al metodo leer 
+	    listaProductos.Leer(); 
+	     //cargo mis ventas a la nueva ventana	    
+	    listaVentas.cargarVentas(); 
 
 	    int numProductos = listaProductos.tamaño();
 
@@ -154,13 +157,13 @@ public class Reportes extends JFrame {
 	        unidadesVendidas[i] = 0; // Inicialmente todas las ventas a cero
 	    }
 
-	    // Calcula unidades vendidas por producto en txt
+	    // calcula unidades vendidas por producto en txt
 	    for (int i = 0; i < listaVentas.tamaño(); i++) {
 	        Ventas venta = listaVentas.obtenerVenta(i);
 	        String codigoProducto = venta.getCodigoProducto();
 	        int cantidadVendida = venta.getCantidad();
 
-	        // Busca el producto en el arreglo de productos y suma unidades vendidas
+	        // busca el producto en el arreglo de productos y sumar unidades vendidas
 	        for (int j = 0; j < numProductos; j++) {
 	            if (codigosProducto[j].equals(codigoProducto)) {
 	                unidadesVendidas[j] += cantidadVendida;
@@ -169,7 +172,7 @@ public class Reportes extends JFrame {
 	        }
 	    }
 
-	    // Crea el mensaje con los resultados
+	    // el mensaje con los resultados
 	    StringBuilder mensaje = new StringBuilder();
 	    mensaje.append("Unidades vendidas por producto:\n");
 
@@ -180,7 +183,8 @@ public class Reportes extends JFrame {
 	        mensaje.append("-----------------------------------------------------------\n");
 	    }
 	    
-	    // Mostrar los resultados en el JTextArea
+	    //boto los resutados 
+
 	    txtResultado.setText(mensaje.toString());
 	}
 	
@@ -212,7 +216,5 @@ public class Reportes extends JFrame {
 	    txtResultado.setText(obj.toString());
 	}
 
-	public void limpiar() {
-		txtResultado.setText("");
-	}
+	
 }

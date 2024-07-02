@@ -86,4 +86,8 @@ public class ArregloVentas {
             System.out.println("Error al guardar ventas: " + e.getMessage());
         }
     }
+    
+    public void limpiar() {
+		listaVentas.clear();		
+	}
 }
