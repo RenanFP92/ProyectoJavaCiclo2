@@ -151,6 +151,7 @@ public class TIENDA extends JFrame implements ActionListener{
 	}
 	
 	
+	
 	//Direcciona las acciones de los botones
 	
 		public void actionPerformedMntmClientes(ActionEvent e) {
