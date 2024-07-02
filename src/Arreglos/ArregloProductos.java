@@ -44,6 +44,18 @@ public class ArregloProductos {
 		return -1; 
 	}
 	
+	///////Agregar un método para actualizar el stock de un producto
+	public void actualizarStock(int codigoProducto, int cantidadVendida) {
+	    int index = buscar(codigoProducto);
+	    if (index != -1) {
+	        Producto producto = obtener(index);
+	        int nuevoStock = producto.getStockActual() - cantidadVendida;
+	        producto.setStockActual(nuevoStock);
+	        modificar(index, producto);
+	        Grabar();  // Guardar los cambios en el archivo
+	    }
+	}
+	
 	//Métodos para la gestión de archivos
 	public void Grabar() {
 		try {	// Crear un archivo en disco
@@ -59,7 +71,7 @@ public class ArregloProductos {
 				// Cerrar el archivo
 				escritor.close();
 		} catch (IOException e) {
-				System.out.println("*** ERROR:" + e.getMessage());
+				System.out.println("* ERROR:" + e.getMessage());
 		}
 	}
 	
@@ -80,7 +92,7 @@ public class ArregloProductos {
 				}
 				lee.close();
 		} catch (IOException e) {
-			System.out.println("*** ERROR:" + e.getMessage());
+			System.out.println("* ERROR:" + e.getMessage());
 		}		
 	}
 

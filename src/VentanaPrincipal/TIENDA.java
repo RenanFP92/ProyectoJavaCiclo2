@@ -153,7 +153,6 @@ public class TIENDA extends JFrame implements ActionListener{
 	
 	
 	//Direcciona las acciones de los botones
-	
 		public void actionPerformedMntmClientes(ActionEvent e) {
 			FmrCliente ventana1 = new FmrCliente ();
 			ventana1.setVisible(true);

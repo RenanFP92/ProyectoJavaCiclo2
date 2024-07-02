@@ -1,7 +1,6 @@
 package gui;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
@@ -20,6 +19,7 @@ public class FmrVentas extends JFrame {
     private ArregloCliente arregloCliente;
     private ArregloProductos arregloProductos;
     private ArregloVentas arregloVentas;
+    private JSeparator separator_1;
     
     
     public static void main(String[] args) {
@@ -43,99 +43,144 @@ public class FmrVentas extends JFrame {
         this.arregloVentas = arregloVentas;
 
         setTitle("Ventas");
-        setSize(400, 400);
+        setSize(605, 460);
         setLocationRelativeTo(null);
 		setResizable(false);
-        setLayout(new GridLayout(13, 2));
+        getContentPane().setLayout(null);
 
         // Crear y agregar los componentes
-        add(new JLabel("Código de Venta:"));
+        JLabel label = new JLabel("Código de Venta:");
+        label.setBounds(10, 25, 192, 27);
+        getContentPane().add(label);
         txtCodigoVenta = new JTextField();
+        txtCodigoVenta.setBounds(192, 25, 192, 27);
         txtCodigoVenta.setEditable(false);
-        add(txtCodigoVenta);
+        getContentPane().add(txtCodigoVenta);
 
-        add(new JLabel("Código del Cliente:"));
+        JLabel label_1 = new JLabel("Código del Cliente:");
+        label_1.setBounds(20, 75, 140, 27);
+        getContentPane().add(label_1);
         txtCodigoCliente = new JTextField();
-        add(txtCodigoCliente);
+        txtCodigoCliente.setBounds(192, 75, 192, 27);
+        getContentPane().add(txtCodigoCliente);
 
         btnBuscarCliente = new JButton("Buscar Cliente");
+        btnBuscarCliente.setBounds(394, 75, 192, 27);
         btnBuscarCliente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 buscarCliente();
             }
         });
-        add(btnBuscarCliente);
+        getContentPane().add(btnBuscarCliente);
 
-        add(new JLabel("Nombres:"));
+        JLabel label_2 = new JLabel("Nombres:");
+        label_2.setBounds(20, 102, 140, 27);
+        getContentPane().add(label_2);
         txtNombres = new JTextField();
+        txtNombres.setBounds(192, 102, 192, 27);
         txtNombres.setEditable(false);
-        add(txtNombres);
+        getContentPane().add(txtNombres);
 
-        add(new JLabel("Apellidos:"));
+        JLabel label_3 = new JLabel("Apellidos:");
+        label_3.setBounds(20, 129, 140, 27);
+        getContentPane().add(label_3);
         txtApellidos = new JTextField();
+        txtApellidos.setBounds(192, 129, 192, 27);
         txtApellidos.setEditable(false);
-        add(txtApellidos);
+        getContentPane().add(txtApellidos);
 
-        add(new JLabel("Código del Producto:"));
+        JLabel label_4 = new JLabel("Código del Producto:");
+        label_4.setBounds(20, 179, 140, 27);
+        getContentPane().add(label_4);
         txtCodigoProducto = new JTextField();
-        add(txtCodigoProducto);
+        txtCodigoProducto.setBounds(192, 179, 192, 27);
+        getContentPane().add(txtCodigoProducto);
 
         btnBuscarProducto = new JButton("Buscar Producto");
+        btnBuscarProducto.setBounds(394, 179, 192, 27);
         btnBuscarProducto.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 buscarProducto();
             }
         });
-        add(btnBuscarProducto);
+        getContentPane().add(btnBuscarProducto);
 
-        add(new JLabel("Nombre del Producto:"));
+        JLabel label_5 = new JLabel("Nombre del Producto:");
+        label_5.setBounds(20, 205, 140, 27);
+        getContentPane().add(label_5);
         txtNombreProducto = new JTextField();
+        txtNombreProducto.setBounds(192, 205, 192, 27);
         txtNombreProducto.setEditable(false);
-        add(txtNombreProducto);
+        getContentPane().add(txtNombreProducto);
 
-        add(new JLabel("Cantidad:"));
+        JLabel label_6 = new JLabel("Cantidad:");
+        label_6.setBounds(20, 228, 140, 27);
+        getContentPane().add(label_6);
         txtCantidad = new JTextField();
-        add(txtCantidad);
+        txtCantidad.setBounds(192, 228, 192, 27);
+        getContentPane().add(txtCantidad);
 
-        add(new JLabel("Precio Unitario:"));
+        JLabel label_7 = new JLabel("Precio Unitario:");
+        label_7.setBounds(20, 256, 140, 27);
+        getContentPane().add(label_7);
         txtPrecio = new JTextField();
+        txtPrecio.setBounds(192, 256, 192, 27);
         txtPrecio.setEditable(false);
-        add(txtPrecio);
+        getContentPane().add(txtPrecio);
 
-        add(new JLabel("Subtotal:"));
+        JLabel label_8 = new JLabel("Subtotal:");
+        label_8.setBounds(20, 283, 140, 27);
+        getContentPane().add(label_8);
         txtSubtotal = new JTextField();
+        txtSubtotal.setBounds(192, 283, 192, 27);
         txtSubtotal.setEditable(false);
-        add(txtSubtotal);
+        getContentPane().add(txtSubtotal);
 
-        add(new JLabel("IGV:"));
+        JLabel label_9 = new JLabel("IGV:");
+        label_9.setBounds(20, 310, 140, 27);
+        getContentPane().add(label_9);
         txtIGV = new JTextField();
+        txtIGV.setBounds(192, 310, 192, 27);
         txtIGV.setEditable(false);
-        add(txtIGV);
+        getContentPane().add(txtIGV);
 
-        add(new JLabel("Total:"));
+        JLabel label_10 = new JLabel("Total:");
+        label_10.setBounds(20, 337, 140, 27);
+        getContentPane().add(label_10);
         txtTotal = new JTextField();
+        txtTotal.setBounds(192, 337, 192, 27);
         txtTotal.setEditable(false);
-        add(txtTotal);
+        getContentPane().add(txtTotal);
 
         btnCalcular = new JButton("Calcular");
+        btnCalcular.setBounds(394, 337, 192, 27);
         btnCalcular.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 calcularImportes();
             }
         });
-        add(btnCalcular);
+        getContentPane().add(btnCalcular);
 
         btnVender = new JButton("Vender");
+        btnVender.setBounds(394, 375, 192, 27);
         btnVender.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 realizarVenta();
             }
         });
-        add(btnVender);
+        getContentPane().add(btnVender);
+        
+        JSeparator separator = new JSeparator();
+        separator.setBounds(10, 63, 569, 1);
+        getContentPane().add(separator);
+        
+        separator_1 = new JSeparator();
+        separator_1.setBounds(10, 167, 569, 1);
+        getContentPane().add(separator_1);
 
         // Inicializar el código de venta
         inicializarCodigoVenta();
@@ -206,8 +251,13 @@ public class FmrVentas extends JFrame {
 
             Ventas venta = new Ventas(codigoVenta, codigoCliente, nombres, apellidos, codigoProducto, nombreProducto, cantidad, precio, fecha);
             arregloVentas.agregarVenta(venta);
+			//////////////////////////////////////////////////
+			// Actualizar el stock del producto
+			int codigoProd = Integer.parseInt(codigoProducto);
+			arregloProductos.actualizarStock(codigoProd, cantidad);
+			//////////////////
             JOptionPane.showMessageDialog(this, "Venta realizada con éxito", "Éxito", JOptionPane.INFORMATION_MESSAGE);
-            
+ 
             // Generar nuevo código de venta para la siguiente venta
             txtCodigoVenta.setText(String.valueOf(arregloVentas.generarCodigoVenta()));
         } catch (NumberFormatException ex) {
@@ -218,6 +268,8 @@ public class FmrVentas extends JFrame {
     private void inicializarCodigoVenta() {
         txtCodigoVenta.setText(String.valueOf(arregloVentas.generarCodigoVenta()));
     }
+    
+
 
    
 }
