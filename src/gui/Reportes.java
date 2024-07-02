@@ -1,6 +1,5 @@
 package gui;
 
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -11,7 +10,12 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import Arreglos.ArregloProductos;
+import Arreglos.ArregloVentas;
 import Clases.Producto;
+import Clases.ProductoAcumulado;
+import Clases.Ventas;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Reportes extends JFrame {
 
@@ -23,8 +27,9 @@ public class Reportes extends JFrame {
 	private JButton btnListadoVentas;
 	private JTextArea txtResultado;
 	private JScrollPane scrollPane;
-	ArregloProductos lista = new ArregloProductos();
-	
+	ArregloProductos listaProductos = new ArregloProductos();
+	ArregloVentas listaVentas = new ArregloVentas();
+
 	public Reportes() {
 		setTitle("Reportes");
 		setBounds(100, 100, 900, 507);
@@ -48,7 +53,7 @@ public class Reportes extends JFrame {
 		btnListadoVentas = new JButton("LISTADO GENERAL");
 		btnListadoVentas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ListadoGeneral();
+				ListadoGeneral(listaVentas);
 			}
 		});
 		btnListadoVentas.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -58,7 +63,7 @@ public class Reportes extends JFrame {
 		btnListadoStockMinimo = new JButton("PRODUCTOS DEBAJO DEL STOCK MÍNIMO");
 		btnListadoStockMinimo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ListadoDeStockMinimo(lista);
+				ListadoDeStockMinimo(listaProductos);
 			}
 		});
 		btnListadoStockMinimo.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -86,33 +91,128 @@ public class Reportes extends JFrame {
 		contentPane.add(btnImporteTotal);
 	}
 	
-	
-	
-	public void ListadoDeStockMinimo(ArregloProductos lista) {
-		lista.Leer(); // Asegúrate de leer los datos
+	public void ListadoDeStockMinimo(ArregloProductos listaProductos) {
+		listaProductos.Leer(); // Asegúrate de leer los datos
+		boolean hayProductoFueraDeStockMinimo = false;
         StringBuilder obj = new StringBuilder();
-        for (int i = 0; i < lista.tamaño(); i++) {
-            Producto producto = lista.obtener(i);
+        for (int i = 0; i < listaProductos.tamaño(); i++) {
+            Producto producto = listaProductos.obtener(i);
             if (producto.getStockActual() < producto.getStockMinimo()) {
                 obj.append("Código: " + producto.getCodigoProducto() + 
                            "\nNombre: " + producto.getNombre() +
                            "\nStock Actual: " + producto.getStockActual() + 
                            "\nStock Mínimo: " + producto.getStockMinimo() +
                            "\n-----------------------------------------------------------" + "\n");
+                hayProductoFueraDeStockMinimo = true;
             }
+        }
+        
+        if (!hayProductoFueraDeStockMinimo) {
+            obj.append("NO HAY PRODUCTO FUERA DE SU STOCK MÍNIMO");
+        }
+        
+        txtResultado.setText(obj.toString());
+	}
+	
+	public void ListadoGeneral(ArregloVentas listaVentas) {
+		listaVentas.cargarVentas();
+		StringBuilder obj = new StringBuilder();
+        for (int i = 0; i < listaVentas.tamaño(); i++) {
+        	Ventas venta = listaVentas.obtenerVenta(i);
+        	obj.append("Código de la venta: " + venta.getCodigoVenta() +
+        			"\nCódigo del cliente: " + venta.getCodigoCliente() +
+        			"\nCódigo del producto: " + venta.getCodigoProducto() +
+        			"\nFecha de la venta: " + venta.getFecha() +
+        			"\nImporte subtotal: " + venta.getSubTotal() +
+        			"\nImporte IGV: " + venta.getIgv() +
+        			"\nImporte total: " + venta.getImporteTotal() +
+                    "\n-----------------------------------------------------------" + "\n");
         }
         txtResultado.setText(obj.toString());
 	}
 	
-	public void ListadoGeneral() {
-		
-	}
-	
 	public void UnidadesVendidasPorProducto() {
-		
+	    // Reiniciar la lista de ventas para evitar acumulaciones
+	    listaVentas = new ArregloVentas();
+	    limpiar();
+	    // Leer los productos y cargar las ventas
+	    listaProductos.Leer();
+	    listaVentas.cargarVentas();
+
+	    int numProductos = listaProductos.tamaño();
+
+	    // Arreglos para almacenar los datos
+	    String[] codigosProducto = new String[numProductos];
+	    String[] nombresProducto = new String[numProductos];
+	    int[] unidadesVendidas = new int[numProductos];
+
+	    // Inicializar arreglos con datos de productos
+	    for (int i = 0; i < numProductos; i++) {
+	        Producto producto = listaProductos.obtener(i);
+	        codigosProducto[i] = String.valueOf(producto.getCodigoProducto());
+	        nombresProducto[i] = producto.getNombre();
+	        unidadesVendidas[i] = 0; // Inicialmente todas las ventas a cero
+	    }
+
+	    // Calcula unidades vendidas por producto en txt
+	    for (int i = 0; i < listaVentas.tamaño(); i++) {
+	        Ventas venta = listaVentas.obtenerVenta(i);
+	        String codigoProducto = venta.getCodigoProducto();
+	        int cantidadVendida = venta.getCantidad();
+
+	        // Busca el producto en el arreglo de productos y suma unidades vendidas
+	        for (int j = 0; j < numProductos; j++) {
+	            if (codigosProducto[j].equals(codigoProducto)) {
+	                unidadesVendidas[j] += cantidadVendida;
+	                break; 
+	            }
+	        }
+	    }
+
+	    // Crea el mensaje con los resultados
+	    StringBuilder mensaje = new StringBuilder();
+	    mensaje.append("Unidades vendidas por producto:\n");
+
+	    for (int i = 0; i < numProductos; i++) {
+	        mensaje.append("Código: ").append(codigosProducto[i]).append("\n");
+	        mensaje.append("Nombre: ").append(nombresProducto[i]).append("\n");
+	        mensaje.append("Unidades Vendidas: ").append(unidadesVendidas[i]).append("\n");
+	        mensaje.append("-----------------------------------------------------------\n");
+	    }
+	    
+	    // Mostrar los resultados en el JTextArea
+	    txtResultado.setText(mensaje.toString());
 	}
 	
 	public void ImporteTotalPorProducto() {
-		
+	    Map<String, ProductoAcumulado> acumulados = new HashMap<>();
+
+	    for (int i = 0; i < listaVentas.tamaño(); i++) {
+	        Ventas venta = listaVentas.obtenerVenta(i);
+	        String codigoProducto = venta.getCodigoProducto();
+	        String nombreProducto = venta.getNombreProducto();
+	        double importeTotal = venta.getImporteTotal();
+
+	        if (!acumulados.containsKey(codigoProducto)) {
+	            acumulados.put(codigoProducto, new ProductoAcumulado(codigoProducto, nombreProducto, importeTotal));
+	        } else {
+	            ProductoAcumulado productoAcumulado = acumulados.get(codigoProducto);
+	            productoAcumulado.acumularImporte(importeTotal);
+	        }
+	    }
+
+	    // Mostramos los resultados
+	    StringBuilder obj = new StringBuilder();
+	    for (ProductoAcumulado producto : acumulados.values()) {
+	        obj.append("Código del Producto: " + producto.getCodigoProducto() +
+	                   "\nNombre del Producto: " + producto.getNombreProducto() +
+	                   "\nImporte Total Acumulado: " + producto.getImporteTotalAcumulado() +
+	                   "\n-----------------------------------------------------------" + "\n");
+	    }
+	    txtResultado.setText(obj.toString());
+	}
+
+	public void limpiar() {
+		txtResultado.setText("");
 	}
 }

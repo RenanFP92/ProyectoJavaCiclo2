@@ -11,6 +11,9 @@ public class Ventas {
     private String nombreProducto;
     private int cantidad;
     private double precio;
+    private double subTotal;
+    private double igv;
+    private double importeTotal;
     private Date fecha;
 
     public Ventas(int codigoVenta, String codigoCliente, String nombres, String apellidos, String codigoProducto, String nombreProducto, int cantidad, double precio, Date fecha) {
@@ -22,6 +25,9 @@ public class Ventas {
         this.nombreProducto = nombreProducto;
         this.cantidad = cantidad;
         this.precio = precio;
+        this.subTotal = cantidad*precio;
+        this.igv = subTotal * 0.18;
+        this.importeTotal = subTotal + igv;
         this.fecha = fecha;
     }
 
@@ -55,6 +61,18 @@ public class Ventas {
 
     public double getPrecio() {
         return precio;
+    }
+    
+    public double getSubTotal() {
+    	return subTotal;
+    }
+    
+    public double getIgv() {
+    	return igv;
+    }
+    
+    public double getImporteTotal() {
+    	return importeTotal;
     }
 
     public Date getFecha() {
