@@ -49,17 +49,17 @@ public class FmrVentas extends JFrame {
         getContentPane().setLayout(null);
 
         // Crear y agregar los componentes
-        JLabel label = new JLabel("Código de Venta:");
-        label.setBounds(10, 25, 192, 27);
-        getContentPane().add(label);
+        JLabel lblCodigoVenta = new JLabel("Código de Venta:");
+        lblCodigoVenta.setBounds(10, 25, 192, 27);
+        getContentPane().add(lblCodigoVenta);
         txtCodigoVenta = new JTextField();
         txtCodigoVenta.setBounds(192, 25, 192, 27);
         txtCodigoVenta.setEditable(false);
         getContentPane().add(txtCodigoVenta);
 
-        JLabel label_1 = new JLabel("Código del Cliente:");
-        label_1.setBounds(20, 75, 140, 27);
-        getContentPane().add(label_1);
+        JLabel lblCodigoCliente = new JLabel("Código del Cliente:");
+        lblCodigoCliente.setBounds(20, 75, 140, 27);
+        getContentPane().add(lblCodigoCliente);
         txtCodigoCliente = new JTextField();
         txtCodigoCliente.setBounds(192, 75, 192, 27);
         getContentPane().add(txtCodigoCliente);
@@ -74,25 +74,25 @@ public class FmrVentas extends JFrame {
         });
         getContentPane().add(btnBuscarCliente);
 
-        JLabel label_2 = new JLabel("Nombres:");
-        label_2.setBounds(20, 102, 140, 27);
-        getContentPane().add(label_2);
+        JLabel lblNombreCliente = new JLabel("Nombres:");
+        lblNombreCliente.setBounds(20, 102, 140, 27);
+        getContentPane().add(lblNombreCliente);
         txtNombres = new JTextField();
         txtNombres.setBounds(192, 102, 192, 27);
         txtNombres.setEditable(false);
         getContentPane().add(txtNombres);
 
-        JLabel label_3 = new JLabel("Apellidos:");
-        label_3.setBounds(20, 129, 140, 27);
-        getContentPane().add(label_3);
+        JLabel lblApellidoCliente = new JLabel("Apellidos:");
+        lblApellidoCliente.setBounds(20, 129, 140, 27);
+        getContentPane().add(lblApellidoCliente);
         txtApellidos = new JTextField();
         txtApellidos.setBounds(192, 129, 192, 27);
         txtApellidos.setEditable(false);
         getContentPane().add(txtApellidos);
 
-        JLabel label_4 = new JLabel("Código del Producto:");
-        label_4.setBounds(20, 179, 140, 27);
-        getContentPane().add(label_4);
+        JLabel lblCodigoProducto = new JLabel("Código del Producto:");
+        lblCodigoProducto.setBounds(20, 179, 140, 27);
+        getContentPane().add(lblCodigoProducto);
         txtCodigoProducto = new JTextField();
         txtCodigoProducto.setBounds(192, 179, 192, 27);
         getContentPane().add(txtCodigoProducto);
@@ -107,48 +107,48 @@ public class FmrVentas extends JFrame {
         });
         getContentPane().add(btnBuscarProducto);
 
-        JLabel label_5 = new JLabel("Nombre del Producto:");
-        label_5.setBounds(20, 205, 140, 27);
-        getContentPane().add(label_5);
+        JLabel lblNombreProducto = new JLabel("Nombre del Producto:");
+        lblNombreProducto.setBounds(20, 205, 140, 27);
+        getContentPane().add(lblNombreProducto);
         txtNombreProducto = new JTextField();
         txtNombreProducto.setBounds(192, 205, 192, 27);
         txtNombreProducto.setEditable(false);
         getContentPane().add(txtNombreProducto);
 
-        JLabel label_6 = new JLabel("Cantidad:");
-        label_6.setBounds(20, 228, 140, 27);
-        getContentPane().add(label_6);
+        JLabel lblCantidad = new JLabel("Cantidad:");
+        lblCantidad.setBounds(20, 228, 140, 27);
+        getContentPane().add(lblCantidad);
         txtCantidad = new JTextField();
         txtCantidad.setBounds(192, 228, 192, 27);
         getContentPane().add(txtCantidad);
 
-        JLabel label_7 = new JLabel("Precio Unitario:");
-        label_7.setBounds(20, 256, 140, 27);
-        getContentPane().add(label_7);
+        JLabel lblPrecioUnitario = new JLabel("Precio Unitario:");
+        lblPrecioUnitario.setBounds(20, 256, 140, 27);
+        getContentPane().add(lblPrecioUnitario);
         txtPrecio = new JTextField();
         txtPrecio.setBounds(192, 256, 192, 27);
         txtPrecio.setEditable(false);
         getContentPane().add(txtPrecio);
 
-        JLabel label_8 = new JLabel("Subtotal:");
-        label_8.setBounds(20, 283, 140, 27);
-        getContentPane().add(label_8);
+        JLabel lblSubtotal = new JLabel("Subtotal:");
+        lblSubtotal.setBounds(20, 283, 140, 27);
+        getContentPane().add(lblSubtotal);
         txtSubtotal = new JTextField();
         txtSubtotal.setBounds(192, 283, 192, 27);
         txtSubtotal.setEditable(false);
         getContentPane().add(txtSubtotal);
 
-        JLabel label_9 = new JLabel("IGV:");
-        label_9.setBounds(20, 310, 140, 27);
-        getContentPane().add(label_9);
+        JLabel lblIGV = new JLabel("IGV:");
+        lblIGV.setBounds(20, 310, 140, 27);
+        getContentPane().add(lblIGV);
         txtIGV = new JTextField();
         txtIGV.setBounds(192, 310, 192, 27);
         txtIGV.setEditable(false);
         getContentPane().add(txtIGV);
 
-        JLabel label_10 = new JLabel("Total:");
-        label_10.setBounds(20, 337, 140, 27);
-        getContentPane().add(label_10);
+        JLabel lblTotal = new JLabel("Total:");
+        lblTotal.setBounds(20, 337, 140, 27);
+        getContentPane().add(lblTotal);
         txtTotal = new JTextField();
         txtTotal.setBounds(192, 337, 192, 27);
         txtTotal.setEditable(false);
