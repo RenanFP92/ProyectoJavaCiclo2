@@ -131,6 +131,7 @@ public class Reportes extends JFrame {
                     "\n-----------------------------------------------------------" + "\n");
         }
         txtResultado.setText(obj.toString());
+        
 	}
 	
 	public void UnidadesVendidasPorProducto() {
